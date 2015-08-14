@@ -1,11 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": ">=0.12.2"
-  },
-  "dependencies": {
-    "ejs": "^2.3.1",
-    "express": "~4.9.x"
+    "node": ">=0.12.0"
   },
   "devDependencies": {
     "babel-core": "^5.5.6",
@@ -31,12 +27,6 @@
     "opn": "^1.0.1",
     "wiredep": "^2.2.2"
   },
-
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chapati23/walk-with-me"
-  },
-
   "eslintConfig": {
     "env": {
       "node": true,

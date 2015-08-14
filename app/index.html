@@ -27,15 +27,16 @@
 
   <div id="layout" class="pure-g">
     <div class="content pure-u-1">
-        <div class="footer">
-          <div class="pure-menu pure-menu-horizontal">
-            <ul>
-              <li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">About</a></li>
-              <li class="pure-menu-item"><a href="http://twitter.com/yuilibrary/" class="pure-menu-link">Twitter</a></li>
-              <li class="pure-menu-item"><a href="http://github.com/yahoo/pure/" class="pure-menu-link">GitHub</a></li>
-            </ul>
+        <form class="pure-form match-form">
+          <input type="number" name="age" value="" placeholder="Age" class="age">
+          <label for="gender">Gender</label>
+          <div class="male">
+            <input type="radio" name="gender" value="male">
           </div>
-        </div>
+          <div class="female">
+            <input type="radio" name="gender" value="female">
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -1,6 +1,13 @@
 // bower:scss
 // endbower
 
+/*-------- Big Breakpoint --------*/
+
+@mixin wide() {
+  @media (min-width: 48em) { 
+    @content; 
+  }
+}
 
 /*-------- General Layout & Base Stuff ---------*/
 
@@ -27,7 +34,40 @@ body {
   width: 100%;
 }
 
+.mitte {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*-------- Typography ---------*/
+
+h1 {
+  color: #536c75;
+  font-family: Montserrat, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #fff;
+  font-family: 'Droid Serif', Times, serif;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
 /*-------- Home ---------*/
+
+.title {
+  background: #000;
+  text-align: center;
+
+  @include wide() {
+    height: 100%;
+  }
+}
 
 .entry {
   background: url(../images/emad.jpg) no-repeat 50% 0%;

@@ -3,6 +3,7 @@
 - Precondition:
   - node.js. Get it on nodejs.org or install via homebrew: `brew install node`
   - gulp: install globally via `npm install -g gulp`
+  - bower: install globally via `npm install -g bower`
 - Install dependencies: `npm install && bower install`
 - Run `gulp serve` to preview in your local browser and watch for changes
 - Run `gulp deploy` to deploy this website to Github Pages

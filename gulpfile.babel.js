@@ -162,7 +162,7 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 
 gulp.task('deploy', ['build'], function() {
   return gulp.src('./dist/**/*')
-    .pipe($.ghPagesCname());
+    .pipe($.ghPagesCname({ cname: 'CNAME' }));
 });
 
 gulp.task('default', ['clean'], () => {

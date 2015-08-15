@@ -162,7 +162,7 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 
 gulp.task('deploy', ['build'], function() {
   return gulp.src('./dist/**/*')
-    .pipe($.ghPagesCname({ cname: 'CNAME' }));
+    .pipe($.ghPagesCname({ cname: 'www.walkwithme.berlin' }));
 });
 
 gulp.task('default', ['clean'], () => {

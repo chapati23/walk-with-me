@@ -1,11 +1,35 @@
 // bower:scss
 // endbower
 
+
+// amateur password implementation
+#password-form {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+  label {
+    font-size: 24px;
+    margin: 0 0 10px;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+}
+
+
 /*-------- Big Breakpoint --------*/
 
 @mixin wide() {
-  @media (min-width: 48em) { 
-    @content; 
+  @media (min-width: 48em) {
+    @content;
   }
 }
 
@@ -32,7 +56,7 @@ body {
 
     > * {
       flex-grow: 1;
-      flex-basis: 0; 
+      flex-basis: 0;
     }
   }
 

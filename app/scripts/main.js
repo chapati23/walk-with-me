@@ -18,7 +18,7 @@ function authenticate(event) {
 
   if (password === 'r3fug33s-w3lc0m3') {
     passwordForm.style.display = 'none';
-    document.cookie="access=granted";
+    document.cookie = 'access=granted';
   } else {
     window.alert('Wrong Password');
   }

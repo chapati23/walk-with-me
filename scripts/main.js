@@ -1,1 +1,1 @@
-console.log("'Allo 'Allo!");
+"use strict";function authenticate(e){e.preventDefault(),e.stopPropagation();var t=document.getElementById("password-form"),n=document.getElementById("password").value;"r3fug33s-w3lc0m3"===n?t.style.display="none":window.alert("Wrong Password")}

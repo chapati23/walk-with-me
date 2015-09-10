@@ -1,0 +1,7 @@
+input:not([type=radio]), input:not([type=checkbox]) {
+  padding: 6px 12px;
+
+  &:focus {
+    outline: 0;
+  }
+}

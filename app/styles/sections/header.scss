@@ -1,0 +1,19 @@
+header {
+  background: black;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  text-rendering: optimizeLegibility;
+
+  h1 {
+    margin-bottom: 10px;
+    margin-top: -5px;
+  }
+
+  h1, h2 {
+    text-align: center;
+    width: 100%;
+  }
+}

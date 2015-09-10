@@ -24,3 +24,7 @@ function authenticate(event) {
   }
 }
 
+
+(function() {
+  document.getElementById('js-age-input').focus();
+})();

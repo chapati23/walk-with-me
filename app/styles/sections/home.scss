@@ -1,0 +1,47 @@
+@keyframes animateForm {
+	from { background-color: transparent; }
+	to { background-color: rgba(0, 0, 0, .5); }
+}
+
+main.home {
+  .age-and-gender-form {
+    background: url(../images/emad.jpg) no-repeat 50% 0%;
+    background-size: cover;
+    color: white;
+    flex: 1 1;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .how-old-are-you {
+    border-radius: 5px;
+    font-family: 'Droid Serif', Times, serif;
+    font-style: italic;
+    margin: 60% auto 0;
+    padding: 12px;
+    animation: animateForm 400ms 200ms 1 ease-in-out forwards;
+		width: 80%;
+
+    label {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+      width: 100%;
+    }
+
+    input {
+      background: transparent;
+      border: 1px solid white;
+      border-radius: 10px 10px 0 0;
+      border-width: 0 0 2px 0;
+	    color: white;
+	    font-family: 'Droid Serif', Times, serif;
+      font-size: 2rem;
+			font-style: italic;
+      text-align: center;
+      width: 80%;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+button.primary {
+  background: #536c75;
+  border-radius: 3px;
+  border: none;
+  padding: 6px 12px;
+}
+
+button.gender {
+  background: #88a4b4;
+  border: none;
+  color: white;
+  font-family: 'Droid Serif', Times, serif;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 10px;
+  padding: 8px 12px;
+  width: 130px;
+}
+
+button.male {
+  border-top-left-radius: 15px 50%;
+  border-bottom-left-radius: 15px 50%;
+}
+
+button.female {
+  border-top-right-radius: 15px 50%;
+  border-bottom-right-radius: 15px 50%;
+}

@@ -5,38 +5,21 @@
 
 main.home {
   .age-and-gender-form {
-    color: white;
-    flex: 1 1;
     padding: 20px;
-    text-align: center;
+
+    > * {
+      margin-bottom: 5rem;
+    }
   }
 
-  .how-old-are-you {
-    font-family: 'Droid Serif', Times, serif;
-    font-style: italic;
-    margin: 3rem auto 0;
+  .your-gender > div {
+    min-width: 19rem;
+  }
+
+  .inner {
+    
+    margin: 0 auto;
     padding: 12px;
     /* animation: animateForm 400ms 200ms 1 ease-in-out forwards; */
-
-    label {
-      display: block;
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
-      width: 100%;
-    }
-
-    input {
-      background: transparent;
-      border: 1px solid white;
-      border-radius: 10px 10px 0 0;
-      border-width: 0 0 2px 0;
-	    color: white;
-	    font-family: 'Droid Serif', Times, serif;
-      font-size: 2rem;
-			font-style: italic;
-      text-align: center;
-      width: 80%;
-    }
   }
 }

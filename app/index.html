@@ -32,22 +32,36 @@
     <input type="submit" />
   </form>
 
-  <main class="layout home">
+  <main class="layout-1 home">
     <header>
-        <h1>Walk with me: Berlin</h1>
+        <h1><img src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin"/></h1>
         <h2>Take a journey with a refugee</h2>
     </header>
 
-    <form class="age-and-gender-form">
-
+    <form class="age-and-gender-form layout-2 inner">
       <div class="how-old-are-you">
-        <label for="js-age-input" >How old are you?</label>
+        <label for="js-age-input" class="lbl">How old are you?</label>
         <input id="js-age-input" type="text" name="age" pattern="\d*">  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
       </div>
-
-      <a href="the-journey.html" class="button gender male">male</a>
-      <a href="the-journey.html" class="button gender female">female</a>
+      <div class="your-gender">
+        <label for="gender" class="lbl">Gender</label>
+        <div>
+          <input type="radio" value="male" name="gender" id="male">
+          <label class="radio circle" for="male">
+            <span class="selected"></span> Male
+          </label>
+          <input type="radio" value="female" name="gender" id="female">
+          <label class="radio circle" for="female">
+            <span class="selected"></span> Female
+          </label>
+        </div>
+      </div>
     </form>
+
+    <div class="inner">
+      <a href="the-journey.html" class="button">Take a walk</a>
+    </div>
+
   </main>
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

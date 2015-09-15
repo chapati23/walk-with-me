@@ -30,11 +30,13 @@
 
 
 /*-------- General Layout & Base Stuff ---------*/
-.layout {
+
+.layout-1, .layout-2 {
   display: flex;
   flex-direction: column;
+}
 
-  /*
+.layout-2 {
   @media (min-width: 768px) {
     flex-direction: row;
 
@@ -42,10 +44,17 @@
       flex: 1;
     }
   }
-  */
 }
 
+.inner {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 /*-------- Browser Deprecation Warning --------*/
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;

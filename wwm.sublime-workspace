@@ -1,0 +1,299 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"w",
+				"wiki"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "bower.json",
+			"settings":
+			{
+				"buffer_size": 166,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 305.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 457.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/kt16-k/sftp-config.json",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/kt16-k/index.html",
+		"/Applications/MAMP/conf/my.cnf",
+		"/Users/tey/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/kt16-k/assets/css/formhack.css",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/kt16-k/content/2-getting/projects.txt",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/kt16-k/content/site.txt",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/kt16-k/assets/css/uniform.css",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/kt16-m/src/index.html",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Invitations/export/image-import.php",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Invitations/export/index.php",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/rsvp/test1.php",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/Slim-2.6.2/index.php",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/rsvp/index.html",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Invitations/export/class-wp-header.php",
+		"/Users/tey/Dropbox/Projects/TWILY/05 Coming Soon Page/index.php",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/Slim-2.6.2/phpunit.xml.dist",
+		"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/Slim-2.6.2/composer.json",
+		"/Users/tey/Dropbox/Projects/12 Round/12round-com-au-default-2-complete-2015-03-01-03-44-53/index.php",
+		"/Users/tey/Dropbox/Projects/Soundcloud/memestream-soundcloud/public/index.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/tey/Dropbox/Projects/Kirby&Tey2016/Website/kt16-m",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"cent",
+			"header",
+			"test",
+			"center",
+			"p {",
+			"p{",
+			"p {",
+			" p",
+			"3em",
+			"weight",
+			"edge",
+			"media",
+			"header",
+			"media",
+			"red",
+			"weight",
+			".text",
+			"body .btn-default",
+			"navbar-d",
+			"email",
+			"instagram",
+			"email",
+			"&amp",
+			"home",
+			"h3",
+			"      ",
+			"        ",
+			"           ",
+			"<h4>",
+			"</h4>",
+			"</h5>",
+			"<h5>",
+			"h1",
+			"h3",
+			";\n",
+			"</span>",
+			"<md-icon(.*)sm>",
+			"<img src=\"",
+			"\" class=\"nav-icon\">",
+			"default-theme",
+			"Contact",
+			"acme-navbar",
+			"Allo!",
+			"Allo'",
+			"Allo",
+			"allo",
+			"class",
+			"</div>",
+			"<div>",
+			"ui"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"wiki",
+			"instagram",
+			"twitter",
+			"facebook",
+			"&nbsp",
+			"h5",
+			"",
+			"h3",
+			"h5",
+			"",
+			"<md-icon md-svg-src=\"",
+			"\" class=\"nav-icon\" aria-label=\"RSVP\"></md-icon>",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "bower.json",
+					"settings":
+					{
+						"buffer_size": 166,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.sftp":
+	{
+		"height": 98.0
+	},
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 195.0,
+	"status_bar_visible": true
+}

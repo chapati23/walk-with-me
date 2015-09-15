@@ -5,23 +5,18 @@
 
 main.home {
   .age-and-gender-form {
-    background: url(../images/emad.jpg) no-repeat 50% 0%;
-    background-size: cover;
     color: white;
     flex: 1 1;
-    height: 100%;
     padding: 20px;
     text-align: center;
   }
 
   .how-old-are-you {
-    border-radius: 5px;
     font-family: 'Droid Serif', Times, serif;
     font-style: italic;
-    margin: 60% auto 0;
+    margin: 3rem auto 0;
     padding: 12px;
-    animation: animateForm 400ms 200ms 1 ease-in-out forwards;
-		width: 80%;
+    /* animation: animateForm 400ms 200ms 1 ease-in-out forwards; */
 
     label {
       display: block;

@@ -1,15 +1,33 @@
+$dark-grey: #232323;
+$medium-grey: #757575;
+$light-grey: #f7f6f5;
+$dark-blue: #1b2a32;
+$light-blue: #88a4b4;
+$orange: #ff9600;
+$green: #bdd7cc;
+
+
 /*-------- Typography ---------*/
-h1 {
-  color: #536c75;
+
+@mixin font-header() {
   font-family: Montserrat, sans-serif;
+}
+
+@mixin font-subheader() {
+  font-family: 'Droid Serif', Times, serif;
+}
+
+h1 {
+  @include font-header();
+  color: #536c75;
   font-size: 2rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 h2 {
+  @include font-subheader();
   color: #7a7a7a;
-  font-family: 'Droid Serif', Times, serif;
   font-size: 1.2rem;
   font-style: italic;
 }

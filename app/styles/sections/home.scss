@@ -4,6 +4,9 @@
 }
 
 main.home {
+  background: transparent url('../images/bg-web.jpg') center center no-repeat;
+  background-size: cover;
+  
   .age-and-gender-form {
     padding: 20px;
 

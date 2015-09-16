@@ -2,9 +2,9 @@
 /*-------- Labels ---------*/
 
 .lbl {
+  @include font-subheader();
   display: block;
   color: #232323;
-  font-family: 'Droid Serif', Times, serif;
   font-size: 1.4rem;
   margin-bottom: 1rem;
   font-style: italic;
@@ -14,10 +14,10 @@
 /*-------- Inputs ---------*/
 
 input[type=text] {
+  @include font-header();
   background: transparent;
   border-width: 0;
   border-bottom: 4px solid white;
-  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-size: 1rem;
 }
@@ -34,7 +34,7 @@ input:not([type=radio]), input:not([type=checkbox]) {
 /*-------- Buttons --------*/
 
 .button {
-  font-family: 'Montserrat', sans-serif;
+  @include font-header();
   font-weight: 300;
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -57,16 +57,16 @@ input[type=radio] {
 }
 
 label.circle {
+  @include font-header();
   display:inline-block;
   margin-right:3rem;
   opacity: 0.6;
-  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   text-transform: uppercase;
 
   span.selected {
     background: #fff;
-    border: 3px solid #c8c8c8;
+    border: 3px solid #999;
     border-radius: 50% 50% 50% 50%;
     display: inline-block;
     margin-bottom: -6px;

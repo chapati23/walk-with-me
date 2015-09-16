@@ -1,0 +1,49 @@
+.journey {
+  
+  h1 {
+    color: #909090;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .route {
+    @include font-header();
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #232323;
+  }
+}
+
+.header-image {
+  height: 30em;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.sub-image {
+  text-align: center;
+  margin: 2rem auto 0.6rem;
+
+  img {
+    width: 12rem;
+  }
+}
+
+.stats {
+  @include font-header();
+  background: #1b2a32;
+  color: #fff;
+  font-size: 2em;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem;
+
+  .sm {
+    font-size: 0.5em;
+  }
+}
+

@@ -1,10 +1,26 @@
+/*-------- Color Variables ---------*/
+
+$dark-grey: #232323;
+$medium-grey: #757575;
+$mid-grey: #909090;
+$light-grey: #f7f6f5;
+$dark-blue: #1b2a32;
+$light-blue: #88a4b4;
+$orange: #ff9600;
+$green: #bdd7cc;
+
+$content-max-width: 56rem;
+
+
+/*-------- Base ---------*/
+
 html, body {
   height: 100%;
   width: 100%;
 }
 
 html {
-  background: #EEE;
+  background: $light-grey;
   box-sizing: border-box;
   color: #333;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -22,5 +38,9 @@ main {
 }
 
 .content {
-  color: #757575;
+  padding: 2rem;
+  background: transparent url('../images/grunge-white-top.jpg') left -30px no-repeat;
+  max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -1,26 +1,64 @@
 .journey {
+
+  header {
+    padding: 0;
+    margin: 0;
+  }
   
   h1 {
-    color: #909090;
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    color: $mid-grey;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
   }
 
   .route {
     @include font-header();
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 600;
     text-transform: uppercase;
-    color: #232323;
+    color: $dark-grey;
   }
 }
 
 .header-image {
   height: 30em;
   overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: transparent url('../images/grunge-over-image.png') left bottom no-repeat;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;   
+  }
 
   img {
     width: 100%;
+  }
+}
+
+.header-info {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  
+  &::after {
+    content: "";
+    background: transparent url('../images/bg-web.jpg') center center no-repeat;
+    background-size: cover;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
   }
 }
 
@@ -47,3 +85,13 @@
   }
 }
 
+.route-map {
+  max-width: $content-max-width;
+  margin-left: auto;
+  margin-right: auto;
+
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+}

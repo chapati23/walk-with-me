@@ -2,7 +2,7 @@
 /*-------- Labels ---------*/
 
 .lbl {
-  @include font-subheader();
+  @include font-base();
   display: block;
   color: #232323;
   font-size: 1.4rem;

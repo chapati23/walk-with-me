@@ -1,11 +1,17 @@
 'use strict';
 
 (function() {
-  var passwordForm = document.getElementById('password-form');
-  var password = document.getElementById('password').value;
+  var passwordForm, password;
+
+  if (document.getElementById('password') != null) {
+    passwordForm = document.getElementById('password-form');
+    password = document.getElementById('password').value;
+  }
 
   if(document.cookie.match(/access=granted/)){
-    passwordForm.style.display = 'none';
+    if (document.getElementById('password-form') != null) {
+      passwordForm.style.display = 'none';
+    }
   }
 
 })();
@@ -26,5 +32,7 @@ function authenticate(event) {
 
 
 (function() {
-  document.getElementById('js-age-input').focus();
+  if (document.getElementById('js-age-input') != null) {
+    document.getElementById('js-age-input').focus();
+  }
 })();

@@ -38,3 +38,7 @@ article p {
     }
   }
 }
+
+aside p {
+  @include font-base();
+}

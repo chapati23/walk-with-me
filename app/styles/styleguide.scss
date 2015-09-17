@@ -24,7 +24,7 @@ h2 {
   font-style: italic;
 }
 
-.content p {
+article p {
   @include font-base();
   color: #757575;
   font-size: 1.2rem;

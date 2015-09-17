@@ -9,7 +9,7 @@ $light-blue: #88a4b4;
 $orange: #ff9600;
 $green: #bdd7cc;
 
-$content-max-width: 56rem;
+$content-max-width: 52rem;
 
 
 /*-------- Base ---------*/
@@ -32,12 +32,40 @@ html {
   padding: 0;
 }
 
+/*-------- General Layout ---------*/
+
+.layout-1, .layout-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-2 {
+  @media (min-width: 768px) {
+    flex-direction: row;
+
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+.inner {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.full {
+  width: 100%;
+  text-align: center;
+}
+
 main {
   background-color: #f7f6f5;
   height: 100%;
 }
 
-.content {
+article {
   padding: 2rem;
   background: transparent url('../images/grunge-white-top.jpg') left -30px no-repeat;
   max-width: $content-max-width;

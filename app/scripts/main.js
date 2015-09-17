@@ -36,3 +36,11 @@ function authenticate(event) {
     document.getElementById('js-age-input').focus();
   }
 })();
+
+
+(function() {
+  setTimeout(function(){
+      counterKm.innerHTML = 4380;
+      counterSteps.innerHTML = 742328;
+  }, 2000);
+})();

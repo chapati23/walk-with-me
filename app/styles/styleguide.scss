@@ -1,3 +1,4 @@
+@import "base";
 
 /*-------- Typography ---------*/
 
@@ -32,7 +33,7 @@ article p {
   margin-bottom: 2rem;
 
   &:first-of-type{
-    &::first-letter { 
+    &::first-letter {
       font-size: 6rem;
       color: $light-blue;
     }

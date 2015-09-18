@@ -40,7 +40,9 @@ function authenticate(event) {
 
 (function() {
   setTimeout(function(){
-      counterKm.innerHTML = 4380;
-      counterSteps.innerHTML = 742328;
+      var counterKm    = document.getElementById('js-counterKm');
+      var counterSteps = document.getElementById('js-counterSteps');
+      if (counterKm)    { counterKm.innerHTML = 4380; }
+      if (counterSteps) { counterSteps.innerHTML = 742328; }
   }, 2000);
 })();

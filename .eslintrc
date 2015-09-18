@@ -1,3 +1,5 @@
 rules:
     no-alert: 1
     no-unused-vars: [1, {vars: "all", args: "after-used"}]
+    no-regex-spaces: 1  // allow multiple spaces in a regular expression literal
+    no-multi-spaces: 1  // allow use of multiple spaces

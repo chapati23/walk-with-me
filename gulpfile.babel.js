@@ -7,9 +7,10 @@ import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+const mainBowerFiles = require('main-bower-files');
 
 gulp.task('styles', () => {
-  return gulp.src('app/styles/*.scss')
+  return gulp.src('client/app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
@@ -19,7 +20,7 @@ gulp.task('styles', () => {
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['last 1 version']}))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(gulp.dest('client/.tmp/styles'))
     .pipe(reload({stream: true}));
 });
 
@@ -38,24 +39,24 @@ const testLintOptions = {
   }
 };
 
-gulp.task('lint', lint(['app/scripts/**/*.js', '!**/*.min.js']));
-gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
+gulp.task('lint', lint(['client/app/scripts/**/*.js', '!**/*.min.js']));
+gulp.task('lint:test', lint('client/test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['styles'], () => {
-  const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
+  const assets = $.useref.assets({searchPath: ['client/.tmp', 'client/app', '.']});
 
-  return gulp.src('app/*.html')
+  return gulp.src('client/app/*.html')
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
     .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('client/dist'));
 });
 
 gulp.task('images', () => {
-  return gulp.src('app/images/**/*')
+  return gulp.src('client/app/images/**/*')
     .pipe($.if($.if.isFile, $.cache($.imagemin({
       progressive: true,
       interlaced: true,
@@ -67,37 +68,43 @@ gulp.task('images', () => {
       console.log(err);
       this.end();
     })))
-    .pipe(gulp.dest('dist/images'));
+    .pipe(gulp.dest('client/dist/images'));
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')({
-    filter: '**/*.{eot,svg,ttf,woff,woff2}'
-  }).concat('app/fonts/**/*'))
-    .pipe(gulp.dest('.tmp/fonts'))
-    .pipe(gulp.dest('dist/fonts'));
+    return gulp.src(mainBowerFiles(
+        {
+            paths: {bowerDirectory: './client',
+                    bowerJson: './client/bower.json'}
+        },
+        {
+            filter: '**/*.{eot,svg,ttf,woff,woff2}'
+        }
+    ).concat('client/app/fonts/**/*'))
+    .pipe(gulp.dest('client/.tmp/fonts'))
+    .pipe(gulp.dest('app/dist/fonts'));
 });
 
 gulp.task('extras', () => {
   return gulp.src([
-    'app/*.*',
-    '!app/*.html'
+    'client/app/*.*',
+    '!client/app/*.html'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+gulp.task('clean', del.bind(null, ['client/.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
-    browser: 'google chrome',
+    //browser: 'google chrome',
     server: {
-      baseDir: ['.tmp', 'app'],
+      baseDir: ['client/.tmp', 'client/app'],
       routes: {
-        '/bower_components': 'bower_components'
+        '/bower_components': 'client/bower_components'
       }
     }
   });
@@ -106,7 +113,7 @@ gulp.task('serve', ['styles', 'fonts'], () => {
     'app/*.html',
     'app/scripts/**/*.js',
     'app/images/**/*',
-    '.tmp/fonts/**/*'
+    'client/.tmp/fonts/**/*'
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
@@ -130,9 +137,9 @@ gulp.task('serve:test', () => {
     port: 9000,
     ui: false,
     server: {
-      baseDir: 'test',
+      baseDir: 'client/test',
       routes: {
-        '/bower_components': 'bower_components'
+        '/bower_components': 'client/bower_components'
       }
     }
   });
@@ -143,13 +150,13 @@ gulp.task('serve:test', () => {
 
 // inject bower components
 gulp.task('wiredep', () => {
-  gulp.src('app/styles/*.scss')
+  gulp.src('client/app/styles/*.scss')
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)+/
     }))
-    .pipe(gulp.dest('app/styles'));
+    .pipe(gulp.dest('client/app/styles'));
 
-  gulp.src('app/*.html')
+  gulp.src('client/app/*.html')
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)*\.\./
     }))
@@ -157,11 +164,11 @@ gulp.task('wiredep', () => {
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+  return gulp.src('client/dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('deploy', ['build'], function() {
-  return gulp.src('./dist/**/*')
+  return gulp.src('./client/dist/**/*')
     .pipe($.ghPagesCname({ cname: 'www.walkwithme.berlin' }));
 });
 

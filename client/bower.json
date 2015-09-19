@@ -1,7 +1,9 @@
 {
   "name": "walk-with-me",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "odometer": "~0.4.7"
+  },
   "devDependencies": {
     "chai": "~3.2.0",
     "mocha": "~2.2.5"

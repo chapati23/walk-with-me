@@ -8,6 +8,7 @@ import {stream as wiredep} from 'wiredep';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 const mainBowerFiles = require('main-bower-files');
+const nodemon = require('gulp-nodemon');
 
 gulp.task('styles', () => {
   return gulp.src('client/app/styles/*.scss')
@@ -91,43 +92,32 @@ gulp.task('extras', () => {
     '!client/app/*.html'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'));
+  }).pipe(gulp.dest('client/dist'));
 });
 
 gulp.task('clean', del.bind(null, ['client/.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'fonts'], () => {
-  browserSync({
-    notify: false,
-    port: 9000,
-    //browser: 'google chrome',
-    server: {
-      baseDir: ['client/.tmp', 'client/app'],
-      routes: {
-        '/bower_components': 'client/bower_components'
-      }
-    }
+gulp.task('serve', ['build'], () => {
+  nodemon({
+    script: 'server/index.js'
+    , ext: 'js'
+    , env: { 'NODE_ENV': 'development' }
   });
 
-  gulp.watch([
-    'app/*.html',
-    'app/scripts/**/*.js',
-    'app/images/**/*',
-    'client/.tmp/fonts/**/*'
-  ]).on('change', reload);
-
-  gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/fonts/**/*', ['fonts']);
-  gulp.watch('bower.json', ['wiredep', 'fonts']);
+  gulp.watch('client/app/styles/**/*.scss', ['build']);
+  gulp.watch('client/app/scripts/**/*.js', ['build']);
+  gulp.watch('client/app/images/**/*', ['build']);
+  gulp.watch('client/app/**/*.html', ['build']);
+  gulp.watch('client/app/fonts/**/*', ['build']);
+  gulp.watch('client/bower.json', ['build']);
 });
 
-gulp.task('serve:dist', () => {
-  browserSync({
-    notify: false,
-    port: 9000,
-    server: {
-      baseDir: ['dist']
-    }
+
+gulp.task('serve:dist', ['build'], () => {
+  nodemon({
+    script: 'server/index.js'
+    , ext: 'js'
+    , env: { 'NODE_ENV': 'development' }
   });
 });
 
@@ -158,9 +148,11 @@ gulp.task('wiredep', () => {
 
   gulp.src('client/app/*.html')
     .pipe(wiredep({
+      directory: './client',
+      bowerJson: './client',
       ignorePath: /^(\.\.\/)*\.\./
     }))
-    .pipe(gulp.dest('app'));
+    .pipe(gulp.dest('client/app'));
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {

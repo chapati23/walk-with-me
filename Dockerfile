@@ -2,7 +2,9 @@ FROM ubuntu:14.04
 
 RUN apt-get update && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-RUN sudo apt-get install -y nodejs nginx sqlite3 libsqlite3-dev
+RUN sudo apt-get install -y nodejs nginx sqlite3 libsqlite3-dev python build-essential
+
+COPY nginx_conf /etc/nginx/nginx.conf
 
 RUN useradd -d /home/app -m -s /bin/bash app
 RUN npm install -g bower
@@ -22,8 +24,6 @@ RUN gulp build
 
 ENV NODE_ENV production
 EXPOSE 3000
-
-COPY nginx_conf /etc/nginx/nginx.conf
 
 CMD ["node", "/home/app/walk-with-me/server/index.js"]
 

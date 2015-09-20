@@ -68,6 +68,8 @@ var User = function () {
   };
 
   return {
+    all: all,
+    findWhere: findWhere,
     validate: validate,
     create: create
   }

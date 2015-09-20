@@ -117,7 +117,7 @@ gulp.task('serve:dist', ['build'], () => {
   nodemon({
     script: 'server/index.js'
     , ext: 'js'
-    , env: { 'NODE_ENV': 'development' }
+    , env: { 'NODE_ENV': 'production' }
   });
 });
 

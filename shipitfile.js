@@ -18,7 +18,7 @@ module.exports = function (shipit) {
 
   shipit.task('build_docker', function() {
     var command = './run_as_docker.sh';
-    return shipit.remote('cd ' + shipit.currentPath + ' && ' + command, {maxBuffer: 5000 * 1024});
+    return shipit.remote('cd ' + shipit.currentPath + ' && ' + command, {maxBuffer: 10000 * 1024});
   });
 
   shipit.on('published', function() {

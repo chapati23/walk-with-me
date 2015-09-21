@@ -1,6 +1,6 @@
-FROM 4.0.0-wheezy
+FROM node:4.0.0-wheezy
 
-RUN sudo apt-get install -y nginx sqlite3 libsqlite3-dev build-essential git
+RUN apt-get update && apt-get install -y nginx sqlite3 libsqlite3-dev build-essential git
 
 COPY nginx_conf /etc/nginx/nginx.conf
 
@@ -16,6 +16,8 @@ RUN chown -R app /home/app/
 
 USER app
 
+RUN npm cache clear
+RUN npm install gulp-imagemin
 RUN npm install
 RUN cd client && bower install
 RUN gulp build

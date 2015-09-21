@@ -18,10 +18,10 @@ module.exports = function (shipit) {
 
   shipit.task('build_docker', function() {
     var command = './run_as_docker.sh';
-    return shipit.remote(command, shipit.currentPath);
+    return shipit.remote('cd ' + shipit.currentPath + ' && ' + command, {maxBuffer: 5000 * 1024});
   });
 
-  shipit.on('deploy:publish', function() {
+  shipit.on('published', function() {
     shipit.start('build_docker');
   });
 };

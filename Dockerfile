@@ -7,7 +7,6 @@ COPY nginx_conf /etc/nginx/nginx.conf
 RUN useradd -d /home/app -m -s /bin/bash app
 RUN npm install -g bower
 RUN npm install -g gulp
-RUN npm install -g forever
 
 RUN mkdir -p /home/app/walk-with-me
 WORKDIR /home/app/walk-with-me

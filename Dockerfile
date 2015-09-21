@@ -2,7 +2,9 @@ FROM node:4.0.0-wheezy
 
 RUN apt-get update && apt-get install -y nginx sqlite3 libsqlite3-dev build-essential git
 
-COPY nginx_conf /etc/nginx/nginx.conf
+COPY nginx_conf /etc/nginx/sites-enabled/
+RUN rm /etc/nginx/sites-enabled/default
+RUN service nginx restart
 
 RUN useradd -d /home/app -m -s /bin/bash app
 RUN npm install -g bower
@@ -23,7 +25,7 @@ RUN cd client && bower install
 RUN gulp build
 
 ENV NODE_ENV production
-EXPOSE 3000
+EXPOSE 80
 
 CMD ["node", "/home/app/walk-with-me/server/index.js"]
 

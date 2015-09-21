@@ -26,7 +26,7 @@ RUN gulp build
 ENV NODE_ENV production
 EXPOSE 3000
 
-CMD ["forever", "start /home/app/walk-with-me/server/index.js"]
+CMD ["node", "/home/app/walk-with-me/server/index.js"]
 
 
 

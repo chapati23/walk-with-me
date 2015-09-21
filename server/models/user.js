@@ -61,9 +61,9 @@ var User = function () {
        params.password !== params.passwordConfirmation){
       return false;
     }
-    var encryptedPassword = bcrypt.hashSync(params.password, 10);
-    var promise = user.create({email: params.email,
-                               encryptedPassword: encryptedPassword})
+    var encryptedPassword = Bcrypt.hashSync(params.password, 10);
+    var promise = SQLUser.create({email: params.email,
+                                  encryptedPassword: encryptedPassword});
     return promise;
   };
 

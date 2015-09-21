@@ -7,4 +7,4 @@ test/bower_components
 .sublime-workspace
 .publish
 dist/
-server/db/*
+server/db/*.sqlite

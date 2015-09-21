@@ -1,6 +1,5 @@
 var Hapi   = require('hapi'),
     Inert  = require('inert'),
-    Bcrypt = require('bcrypt'),
     Basic  = require('hapi-auth-basic'),
     Config = require('./config/app'),
     User   = require('./models/user');

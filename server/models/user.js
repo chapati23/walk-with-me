@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize'),
     sequelize = require('../config/sequelize'),
-    Bcrypt    = require('bcrypt');
+    Bcrypt    = require('bcryptjs');
 
 var SQLUser = function(){
   var columns = {

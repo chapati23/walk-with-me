@@ -17,6 +17,7 @@ RUN chown -R app /home/app/
 USER app
 
 RUN npm cache clear
+RUN npm install browser-sync
 RUN npm install gulp-imagemin
 RUN npm install
 RUN cd client && bower install

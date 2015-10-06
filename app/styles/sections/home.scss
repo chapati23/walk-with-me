@@ -1,0 +1,36 @@
+@keyframes animateForm {
+	from { background-color: transparent; }
+	to { background-color: rgba(0, 0, 0, .5); }
+}
+
+main.home {
+  background: transparent url('../images/bg-web.jpg') center center no-repeat;
+  background-size: cover;
+  
+  .age-and-gender-form {
+    padding: 20px;
+
+    > * {
+      margin-bottom: 5rem;
+    }
+  }
+
+  .your-age {
+    input {
+      width: 6rem;
+    }
+  }
+
+  .your-gender {
+    > div {
+      min-width: 19rem;
+      padding-top: 0.6rem;
+    }
+  }
+
+  .inner {
+    margin: 0 auto;
+    padding: 12px;
+    /* animation: animateForm 400ms 200ms 1 ease-in-out forwards; */
+  }
+}

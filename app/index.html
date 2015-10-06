@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Walk With Me: Berlin. Take a journey with one of our city's refugees.</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Montserrat:400,700/Droid+Serif:400,400i">
+
+  <!-- build:css styles/index.css -->
+  <link rel="stylesheet" href="styles/index.css">
+  <!-- endbuild -->
+
+</head>
+<body>
+  <!--[if lt IE 10]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <form id="password-form" onSubmit="authenticate(event)" >
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" />
+    <input type="submit" />
+  </form>
+
+  <main class="layout-1 home">
+    <header>
+        <h1><img src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin"/></h1>
+        <h2>Take a journey with a refugee</h2>
+    </header>
+
+    <form class="age-and-gender-form layout-2 inner">
+      <div class="your-age">
+        <label for="js-age-input" class="lbl">How old are you?</label>
+        <input id="js-age-input" type="text" name="age" placeholder="AGE" pattern="\d*">  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
+      </div>
+      <div class="your-gender">
+        <label for="gender" class="lbl">Gender</label>
+        <div>
+          <input type="radio" value="male" name="gender" id="male">
+          <label class="radio circle" for="male">
+            <span class="selected"></span> Male
+          </label>
+          <input type="radio" value="female" name="gender" id="female">
+          <label class="radio circle" for="female">
+            <span class="selected"></span> Female
+          </label>
+        </div>
+      </div>
+    </form>
+
+    <div class="inner full">
+      <a href="the-journey.html" class="button fullwidth">Take a walk</a>
+    </div>
+
+  </main>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <!-- <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+                                                            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+  </script> -->
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+</body>
+  </html>

@@ -1,29 +1,27 @@
 
 /*-------- Labels ---------*/
 
-.lbl {
+.big-label {
   @include font-base();
   display: block;
   color: #232323;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: .5rem;
   font-style: italic;
+  text-rendering: geometricPrecision;
 }
 
 
 /*-------- Inputs ---------*/
 
-input[type=text] {
+input[type=text], input[type=number] {
   @include font-header();
   background: transparent;
   border-width: 0;
-  border-bottom: 4px solid white;
-  font-style: normal;
+  border-bottom: 2px solid $turquoise;
   font-size: 1rem;
-}
-
-input:not([type=radio]), input:not([type=checkbox]) {
-  padding: 1rem;
+  padding: .5rem;
+  text-align: center;
 
   &:focus {
     outline: 0;
@@ -35,19 +33,13 @@ input:not([type=radio]), input:not([type=checkbox]) {
 
 .button {
   @include font-header();
-  font-weight: 300;
+  // font-weight: 300;
   text-transform: uppercase;
-  font-size: 1.1rem;
-  padding: 1.6rem;
+  font-size: .9rem;
+  padding: 1rem;
   color: #fff;
   background: #555;
   cursor: pointer;
-
-  &.fullwidth {
-    width: 100%;
-    max-width: 28rem;
-    text-align: center;
-  }
 }
 
 .button.primary {
@@ -65,15 +57,13 @@ input[type=radio] {
 
 label.circle {
   @include font-header();
-  display:inline-block;
-  margin-right:3rem;
-  opacity: 0.6;
+  display: inline-block;
+  margin: 0 1.5rem;
   font-style: normal;
   text-transform: uppercase;
 
-  span.selected {
-    background: #fff;
-    border: 3px solid #999;
+  .selected {
+    border: 1px solid #999;
     border-radius: 50% 50% 50% 50%;
     display: inline-block;
     margin-bottom: -6px;
@@ -83,10 +73,9 @@ label.circle {
 }
 
 input[type="radio"]:checked + label.circle {
-    opacity: 1;
+  opacity: 1;
 }
 
-input[type="radio"]:checked + label.circle span.selected {
-  background: #bdd7cc;
+input[type="radio"]:checked + label.circle .selected {
+  background: $turquoise;
 }
-

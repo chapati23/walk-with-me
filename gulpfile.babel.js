@@ -166,5 +166,5 @@ gulp.task('deploy', ['build'], function() {
 });
 
 gulp.task('default', ['clean'], () => {
-  gulp.start('build');
+  gulp.start('serve');
 });

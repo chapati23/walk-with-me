@@ -6,6 +6,7 @@ $mid-grey: #909090;
 $light-grey: #f7f6f5;
 $dark-blue: #1b2a32;
 $light-blue: #88a4b4;
+$turquoise: #9ACCB5;
 $orange: #ff9600;
 $green: #bdd7cc;
 
@@ -37,6 +38,7 @@ html {
 .layout-1, .layout-2 {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .layout-2 {

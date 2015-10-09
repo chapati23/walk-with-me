@@ -1,0 +1,77 @@
+/*-------- Typography ---------*/
+@mixin font-header() {
+  font-family: Montserrat, sans-serif;
+}
+
+@mixin font-base() {
+  font-family: 'Droid Serif', Times, serif;
+}
+
+h1 {
+  @include font-header();
+  color: #536c75;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+}
+
+h2 {
+  @include font-base();
+  color: #7a7a7a;
+  font-size: 1.2rem;
+  font-style: italic;
+  text-rendering: geometricPrecision;
+}
+
+h3 {
+  @include font-base();
+  color: #7a7a7a;
+  font-size: .8rem;
+  font-style: italic;
+  font-weight: 400;
+  text-rendering: geometricPrecision;
+}
+
+article {
+  background: transparent url('../images/grunge-white-top.jpg') left -30px no-repeat;
+  line-height: 1.5;
+  max-width: $content-max-width;
+  padding: 2rem;
+
+  .sub-image {
+    margin-bottom: 3rem;
+    margin-top: 5rem;
+  }
+
+  > img {
+    margin: 1rem auto;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  p {
+    @include font-base();
+    color: #757575;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+
+    &:first-of-type {
+      &:first-letter {
+        color: $light-blue;
+        font-size: 6rem;
+        line-height: 1.2rem;
+      }
+    }
+  }
+}
+
+aside p {
+  @include font-base();
+}
+
+section {
+  height: 100%;
+  padding: 1rem;
+}

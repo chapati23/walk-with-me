@@ -3,29 +3,41 @@
   "engines": {
     "node": ">=0.12.2"
   },
+  "scripts": {
+    "buildjs": "jspm bundle-sfx app.js dist/app.js --minify --skip-source-maps"
+  },
   "devDependencies": {
+    "angular-inject-templates": "^0.1.2",
     "autoprefixer": "^6.0.2",
     "babel-core": "^5.5.6",
+    "babelify": "^6.3.0",
     "browser-sync": "^2.2.1",
     "del": "^1.1.1",
     "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.7.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-cache": "^0.2.8",
+    "gulp-copy": "0.0.2",
     "gulp-eslint": "^0.13.2",
+    "gulp-filter": "^3.0.1",
     "gulp-gh-pages-cname": "^0.5.2",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
+    "gulp-jspm": "^0.4.1",
     "gulp-load-plugins": "^0.10.0",
     "gulp-minify-css": "^1.1.1",
     "gulp-minify-html": "^1.0.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.0",
+    "gulp-shell": "^0.5.0",
     "gulp-size": "^1.2.1",
     "gulp-sourcemaps": "^1.5.0",
     "gulp-uglify": "^1.1.0",
     "gulp-useref": "^1.1.1",
-    "main-bower-files": "^2.5.0",
+    "jspm": "^0.16.11",
+    "jspm-bower-endpoint": "^0.3.2",
     "opn": "^1.0.1",
+    "typescript": "^1.6.2",
     "wiredep": "^2.2.2"
   },
   "eslintConfig": {
@@ -38,6 +50,27 @@
         2,
         "single"
       ]
+    }
+  },
+  "dependencies": {
+    "ng-annotate": "^1.0.2",
+    "systemjs-builder": "^0.14.8"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "src"
+    },
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.4.7",
+      "angular-animate": "github:angular/bower-angular-animate@^1.4.7",
+      "angular-inview": "npm:angular-inview@^1.5.0",
+      "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
+      "odometer": "bower:odometer@^0.4.7"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
     }
   }
 }

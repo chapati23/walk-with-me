@@ -7,7 +7,6 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN service nginx restart
 
 RUN useradd -d /home/app -m -s /bin/bash app
-RUN npm install -g bower
 RUN npm install -g gulp
 
 RUN mkdir -p /home/app/walk-with-me
@@ -21,13 +20,10 @@ RUN npm cache clear
 RUN npm install browser-sync
 RUN npm install gulp-imagemin
 RUN npm install
-RUN cd client && bower install
+RUN cd app && jspm install
 RUN gulp build
 
 ENV NODE_ENV production
 EXPOSE 80
 
 CMD ["node", "/home/app/walk-with-me/server/index.js"]
-
-
-

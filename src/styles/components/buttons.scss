@@ -1,0 +1,18 @@
+button {
+  background: #536c75;
+  border-radius: 0;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  padding: 1rem;
+  transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+
+  &.call-to-action {
+    background: $orange;
+  }
+}

@@ -1,0 +1,102 @@
+$progressButtonHeight: 58px;
+
+/* Button container */
+.progress-button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-width: 250px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  button {
+    border: 2px solid #536c75;
+
+    &:hover {
+      background-color: #1ECD97;
+      color: #fff;
+    }
+
+    &:focus { outline: none; }
+
+    /* Text (transition for when returning to initial state) */
+    span { transition: opacity 0.3s 0.1s; }
+  }
+
+  svg {
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    path {
+      opacity: 0;
+      fill: none;
+      stroke: #fff;
+      stroke-linecap: round;
+      stroke-width: 4;
+      transition: opacity 0.1s;
+    }
+
+    &.progress-circle path {
+      stroke: #1ECD97;
+      stroke-width: 5;
+    }
+
+    &.checkmark, &.cross {
+      path { transform: translateX(-5px) translateY(-5px); }
+    }
+
+  }
+}
+
+
+/* Loading, success and error effects */
+.loading.progress-button {
+  transform: translateY(-200px);
+  transition: all 500ms ease-in-out;
+
+  button {
+    background-color: transparent;
+    border-radius: 50%;
+    border-width: 5px;
+    color: #fff;
+    height: 70px;
+    padding: 0;
+    width: 70px; /* make a circle */
+  }
+
+  span {
+    transition: opacity 0.15s;
+  }
+}
+
+.loading.progress-button span,
+.success.progress-button span,
+.error.progress-button span {
+  opacity: 0; /* keep it hidden in all states */
+}
+
+.success.progress-button button,
+.error.progress-button button {
+  transition: background-color 0.3s, width 0.3s, border-width 0.3s;
+}
+
+.success.progress-button button {
+  border-color: #1ECD97;
+  background-color: #1ECD97;
+}
+
+.error.progress-button button {
+  border-color: #FB797E;
+  background-color: #FB797E;
+}
+
+.loading.progress-button svg.progress-circle path,
+.success.progress-button svg.checkmark path,
+.error.progress-button svg.cross path {
+  opacity: 1;
+  transition: stroke-dashoffset 0.3s;
+}

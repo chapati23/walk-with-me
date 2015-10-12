@@ -13,30 +13,6 @@ gulp.task( 'html', function () {
     .pipe(gulp.dest('dist/sections'));
 });
 
-gulp.task('js:inject', function () {
-    let scripts = `
-        <script src="jspm_packages/system.js"></script>
-        <script src="config.js"></script>
-        <script>System.import('./app');</script>
-    `
-    return gulp.src('src/index.html')
-    .pipe($.injectString.after('<!-- inject:js -->', scripts))
-    .pipe(gulp.dest('.tmp'));
-});
-
-gulp.task('js:inject:dist', function(){
-    gulp.src('src/index.html')
-    .pipe($.injectString.after('<!-- inject:js -->', "\n\t<script src='app.bundle.js'></script>\n"))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task( 'js:bundle', () => {
-    return gulp.src('src/app.js')
-    .pipe($.jspm({selfExecutingBundle: true}))
-    .pipe($.uglify({ mangle: false}))
-    .pipe( gulp.dest( 'dist' ));
-});
-
 gulp.task('styles', () => {
     return gulp.src('src/styles/*.scss')
     .pipe($.plumber())
@@ -52,13 +28,6 @@ gulp.task('styles', () => {
     .pipe(reload({stream: true}))
     .pipe($.minifyCss({compatibility: '*'}))
     .pipe(gulp.dest('dist/styles'));
-});
-
-gulp.task('js:lint', () => {
-    return gulp.src(['src/**/*.js', '!src/jspm_packages/**/*.js'])
-    .pipe($.eslint())
-    .pipe($.eslint.format())
-    .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
 });
 
 gulp.task('images', () => {
@@ -90,6 +59,37 @@ gulp.task('copy:extras', () => {
     ], {
         dot: true
     }).pipe(gulp.dest('dist'));
+});
+
+gulp.task('js:lint', () => {
+    return gulp.src(['src/**/*.js', '!src/jspm_packages/**/*.js'])
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+    .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
+});
+
+gulp.task('js:inject', function () {
+    let scripts = `
+        <script src="jspm_packages/system.js"></script>
+        <script src="config.js"></script>
+        <script>System.import('./app');</script>
+    `
+    return gulp.src('src/index.html')
+    .pipe($.injectString.after('<!-- inject:js -->', scripts))
+    .pipe(gulp.dest('.tmp'));
+});
+
+gulp.task('js:inject:dist', function(){
+    gulp.src('src/index.html')
+    .pipe($.injectString.after('<!-- inject:js -->', "\n\t<script src='app.bundle.js'></script>\n"))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task( 'js:bundle', () => {
+    return gulp.src('src/app.js')
+    .pipe($.jspm({selfExecutingBundle: true}))
+    .pipe($.uglify({ mangle: false}))
+    .pipe( gulp.dest( 'dist' ));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));

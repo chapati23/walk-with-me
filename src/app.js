@@ -1,4 +1,4 @@
-import 'angular';
+import angular from 'angular';
 import 'angular-animate';
 import 'angular-ui-router';
 import 'angular-sanitize';
@@ -15,8 +15,8 @@ import RefugeeService from './services/refugee.service';
 import OdometerDirective from './components/odometer';
 import ProgressButtonDirective from './components/progressButton.directive';
 
-angular.module('walkWithMe',['ui.router', 'ngAnimate', 'ngSanitize', 'angular-inview'])
-.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
+angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'angular-inview'])
+.config(($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('home', {

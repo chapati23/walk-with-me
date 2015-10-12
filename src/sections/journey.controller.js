@@ -1,6 +1,6 @@
 class JourneyController {
     constructor(RefugeeService) {
-        this.refugee = RefugeeService.getRefugee()
+        this.refugee = RefugeeService.getRefugee();
     }
 }
 

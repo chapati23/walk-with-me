@@ -4,8 +4,8 @@ class SVGEl {
         // the path elements
         this.paths = [].slice.call( this.el.querySelectorAll( 'path' ) );
         // we will save both paths and its lengths in arrays
-        this.pathsArr = new Array();
-        this.lengthsArr = new Array();
+        this.pathsArr = [];
+        this.lengthsArr = [];
         this.paths.forEach( ( path, i ) => {
             this.pathsArr[i] = path;
             path.style.strokeDasharray = this.lengthsArr[i] = path.getTotalLength();
@@ -26,7 +26,7 @@ class ProgressButton {
     constructor (element, options, $timeout, $state, $animate, $rootScope) {
         this.options = {
             // time in ms that the status (success or error will be displayed) - should be at least higher than the transition-duration value defined for the stroke-dashoffset transition of both checkmark and cross strokes
-            statusTime : 1500
+            statusTime: 1500
         };
 
         this.$timeout = $timeout;

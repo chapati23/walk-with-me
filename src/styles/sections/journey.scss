@@ -61,7 +61,7 @@
   .stats {
     @include font-header();
     background: #1b2a32;
-    color: #fff;
+    color: $orange;
     font-size: 2em;
     text-align: center;
     text-transform: uppercase;
@@ -140,6 +140,7 @@
     }
 
     h2 {
+      color: #1b2a32;
       text-align: left;
     }
 

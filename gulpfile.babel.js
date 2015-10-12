@@ -17,10 +17,36 @@ let config = {
     },
 }
 
-gulp.task( 'unbundle', $.shell.task(
-    [ 'jspm unbundle' ],
-    { cwd : 'src' }
-));
+gulp.task('html', () => {
+    const assets = $.useref.assets({searchPath: ['.tmp', 'src', '.']});
+
+    return gulp.src('src/*.html')
+    .pipe(assets)
+    .pipe($.if('*.js', $.uglify()))
+    .pipe(assets.restore())
+    .pipe($.useref())
+    .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('inject:js', function () {
+    let scripts = `
+        <script src="jspm_packages/system.js"></script>
+        <script src="config.js"></script>
+        <script>System.import('./app');</script>
+    `
+    return gulp.src('src/index.html')
+    .pipe($.injectString.after('<!-- inject:js -->', scripts))
+    .pipe(gulp.dest('.tmp'));
+});
+
+gulp.task('inject:js:dist', function(){
+    gulp.src('src/index.html')
+    .pipe($.injectString.after('<!-- inject:js -->', "\n\t<script src='app.bundle.js'></script>\n"))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task( 'unbundle', $.shell.task( [ 'jspm unbundle' ], { cwd : 'src' } ));
 
 gulp.task( 'bundle-sfx', [ 'unbundle' ], () => {
     let appJsFilter = $.filter( 'app.js' );
@@ -34,6 +60,7 @@ gulp.task( 'bundle-sfx', [ 'unbundle' ], () => {
 });
 
 gulp.task( 'bundle-templates', function () {
+    $.shell.task( [ 'mkdir dist/sections' ]);
     return gulp.src('src/sections/*.html')
     .pipe(gulp.dest('dist/sections'));
 });
@@ -100,17 +127,6 @@ const testLintOptions = {
 gulp.task('lint', lint(['src/scripts/**/*.js', '!**/*.min.js']));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
-gulp.task('html', () => {
-    const assets = $.useref.assets({searchPath: ['.tmp', 'src', '.']});
-
-    return gulp.src('src/*.html')
-    .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))
-    .pipe(assets.restore())
-    .pipe($.useref())
-    .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
-    .pipe(gulp.dest('dist'));
-});
 
 gulp.task('images', () => {
     return gulp.src('src/images/**/*')
@@ -145,7 +161,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'fonts'], () => {
+gulp.task('serve', ['inject:js', 'styles', 'fonts'], () => {
     browserSync({
         notify: false,
         port: 9000,
@@ -177,7 +193,7 @@ gulp.task('serve:dist', () => {
     });
 });
 
-gulp.task('build', ['clean', 'lint', 'html', 'bundle-sfx', 'bundle-templates', 'styles:dist', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'inject:js:dist', 'bundle-sfx', 'bundle-templates', 'styles:dist', 'images', 'fonts', 'extras'], () => {
     return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

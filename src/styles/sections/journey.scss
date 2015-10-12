@@ -19,119 +19,144 @@
     text-transform: uppercase;
     color: $dark-grey;
   }
-}
 
-.header-image {
-  height: 26em;
-  overflow: hidden;
-  position: relative;
+  .header-image {
+    height: 27em;
+    overflow: hidden;
+    position: relative;
 
-  &::after {
-    content: "";
-    background: transparent url('../images/grunge-over-image.png') left bottom no-repeat;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: 1;
-  }
-
-  img {
-    width: 100%;
-  }
-}
-
-.header-info {
-  text-align: center;
-  width: 100%;
-  position: relative;
-  z-index: 0;
-  padding-top: .5rem;
-
-  &::after {
-    content: "";
-    background: transparent url('../images/bg-web.jpg') center bottom no-repeat;
-    background-size: cover;
-    opacity: 0.2;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-  }
-}
-
-.sub-image {
-  text-align: center;
-  margin: 1.8rem auto 0.6rem;
-
-  img {
-    width: 12rem;
-  }
-}
-
-.stats {
-  @include font-header();
-  background: #1b2a32;
-  color: #fff;
-  font-size: 2em;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 1rem .2rem 1.2rem;
-
-  .sm {
-    font-size: 0.5em;
-  }
-
-  .odometer-digit {
-    margin-right: -2px;
-  }
-}
-
-.route-map {
-  max-width: $content-max-width;
-  margin-left: auto;
-  margin-right: auto;
-
-  img {
-    width: 100%;
-    vertical-align: bottom;
-  }
-}
-
-.get-involved {
-  padding: 2rem;
-  background: $dark-blue;
-  color: #fff;
-  text-align: center;
-
-  h2 {
-    color: #fff;
-    font-size: 2.2rem;
-    font-weight: 300;
-    margin-bottom: 1rem;
-
-    &::before {
+    &::after {
       content: "";
-      display: block;
-      height: 2px;
-      background: #fff;
-      width: 3rem;
-      margin: 2rem auto;
+      background: transparent url('../images/grunge-over-image.png') left bottom no-repeat;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: 1;
+    }
+
+    img {
+      width: 100%;
     }
   }
 
-  p {
-    font-style: italic;
-    margin-bottom: 3rem;
+  .header-info {
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    padding-top: .5rem;
   }
 
-  button {
-    display: block;
-    width: 100%;
+  .sub-image {
+    text-align: center;
+    margin: 1.8rem auto 0.6rem;
+
+    img {
+      width: 12rem;
+    }
+  }
+
+  .stats {
+    @include font-header();
+    background: #1b2a32;
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1rem .2rem 1.2rem;
+
+    .sm {
+      font-size: 0.5em;
+    }
+
+    .odometer-digit {
+      margin-right: -2px;
+    }
+  }
+
+  .route-map {
     max-width: $content-max-width;
-    margin: 0 auto 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    img {
+      width: 100%;
+      vertical-align: bottom;
+    }
+  }
+
+  .get-involved {
+    padding: 2rem;
+    background: $dark-blue;
+    color: #fff;
+    text-align: center;
+
+    h2 {
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+
+      &::before {
+        content: "";
+        display: block;
+        height: 2px;
+        background: #fff;
+        width: 3rem;
+        margin: 2rem auto;
+      }
+    }
+
+    p {
+      font-style: italic;
+      margin-bottom: 3rem;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      max-width: $content-max-width;
+      margin: 0 auto 1rem;
+    }
+  }
+
+  article {
+    background: transparent url('../images/grunge-white-top.jpg') left -55px no-repeat;
+    line-height: 1.5;
+    max-width: $content-max-width;
+    padding: 2rem;
+
+    .sub-image {
+      margin-bottom: 3rem;
+      margin-top: 4rem;
+    }
+
+    > img {
+      margin: 1rem auto;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    h2 {
+      text-align: left;
+    }
+
+    & > p:first-of-type {
+      &:first-letter {
+        color: $light-blue;
+        font-size: 6rem;
+        line-height: 1.2rem;
+      }
+    }
+
+    p {
+      @include font-base();
+      color: #757575;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
   }
 }

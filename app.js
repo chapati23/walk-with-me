@@ -1,16 +1,22 @@
 import 'angular';
 import 'angular-animate';
 import 'angular-ui-router';
+import 'angular-sanitize';
 import 'angular-inview';
-import OdometerDirective from './components/odometer';
-import ProgressButtonDirective from './components/progressButton';
 
-angular.module('walkWithMe',['ui.router', 'ngAnimate', 'angular-inview'])
+// Controllers
+import HomeController from './sections/home.controller';
+import JourneyController from './sections/journey.controller';
+
+// Services
+import RefugeeService from './services/refugee.service';
+
+// Directives
+import OdometerDirective from './components/odometer';
+import ProgressButtonDirective from './components/progressButton.directive';
+
+angular.module('walkWithMe',['ui.router', 'ngAnimate', 'ngSanitize', 'angular-inview'])
 .config(($stateProvider, $urlRouterProvider, $locationProvider) => {
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('home', {
@@ -22,5 +28,8 @@ angular.module('walkWithMe',['ui.router', 'ngAnimate', 'angular-inview'])
         templateUrl: 'sections/journey.html'
     });
 })
+.controller('HomeController', HomeController)
+.controller('JourneyController', JourneyController)
+.service('RefugeeService', RefugeeService)
 .directive('odometer', OdometerDirective)
 .directive('progressButton', ProgressButtonDirective);

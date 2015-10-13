@@ -144,7 +144,7 @@
       text-align: left;
     }
 
-    & > p:first-of-type {
+    & p:first-of-type {
       &:first-letter {
         color: $light-blue;
         font-size: 6rem;

@@ -16,7 +16,7 @@
                 <span ng-bind="vm.refugee.currentCity"></span>
             </p>
             <div class="route-map">
-                <img src="images/map-syria-by-land.gif" alt="Syria to Berlin"/>
+                <img ng-src="images/journey/{{vm.refugee.mapUrl}}" alt="{{vm.refugee.homeTown}} to {{vm.refugee.currentCity}}"/>
             </div>
         </div>
     </header>

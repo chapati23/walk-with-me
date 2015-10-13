@@ -9,8 +9,9 @@ class RefugeeService {
                 homeTown: 'Aleppo',
                 currentCountry: 'Germany',
                 currentCity: 'Berlin',
-                kmTraveled: 4380,
-                stepsTraveled: 742328,
+                kmTraveled: 2594,
+                stepsTraveled: 3242500,
+                mapUrl: 'map-aleppo-to-berlin.gif',
                 imgUrl: 'zahira.jpg',
                 story: {
                     whereAreYouFrom: `
@@ -41,8 +42,9 @@ class RefugeeService {
                 homeTown: 'Cairo',
                 currentCountry: 'Germany',
                 currentCity: 'Berlin',
-                kmTraveled: 4380,
-                stepsTraveled: 742328,
+                kmTraveled: 3144,
+                stepsTraveled: 3930000,
+                mapUrl: 'map-cairo-to-berlin.gif',
                 imgUrl: 'hamada.jpg',
                 story: {
                     whereAreYouFrom: `<p>I was a bodybuilder - one of the best in my country. I finished 1st and 2nd place in two national bodybuilding contests, and was on the way to becoming a professional fitness trainer.</p>`,

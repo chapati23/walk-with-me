@@ -73,7 +73,7 @@ gulp.task('js:inject', function () {
         <script src="jspm_packages/system.js"></script>
         <script src="config.js"></script>
         <script>System.import('./app');</script>
-    `
+    `;
     return gulp.src('src/index.html')
     .pipe($.injectString.after('<!-- inject:js -->', scripts))
     .pipe(gulp.dest('.tmp'));
@@ -111,6 +111,8 @@ gulp.task('serve', ['js:inject', 'styles', 'fonts'], () => {
         '.tmp/fonts/**/*'
     ]).on('change', reload);
 
+    gulp.watch(['src/html/**/*.html', '!src/index.html'], ['html']);
+    gulp.watch('src/index.html', ['js:inject']);
     gulp.watch('src/styles/**/*.scss', ['styles']);
     gulp.watch('src/fonts/**/*', ['fonts']);
     gulp.watch('src/**/*.js', ['js:lint']);

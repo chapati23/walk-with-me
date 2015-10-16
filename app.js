@@ -19,17 +19,23 @@ angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'angular-i
 .config(($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/');
 
-    $stateProvider.state('home', {
+    $stateProvider
+
+    .state('home', {
         url: '/',
-        templateUrl: 'sections/home.html'
+        templateUrl: 'sections/home.html',
+        controller: HomeController,
+        controllerAs: 'vm'
     })
+
     .state('journey', {
-        url: '/journey',
-        templateUrl: 'sections/journey.html'
+        url: '/journey/{refugeeName:[a-z]{1,50}}-{refugeeId:[0-9]{1,7}}',
+        templateUrl: 'sections/journey.html',
+        controller: JourneyController,
+        controllerAs: 'vm'
     });
+
 })
-.controller('HomeController', HomeController)
-.controller('JourneyController', JourneyController)
 .service('RefugeeService', RefugeeService)
 .directive('odometer', OdometerDirective)
 .directive('progressButton', ProgressButtonDirective);

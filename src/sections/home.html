@@ -1,24 +1,24 @@
-<section id="home" ng-controller="HomeController as vm">
+<section id="home">
     <header>
         <img src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin" width="230"/>
     </header>
 
     <h3 class="search-in-progress">We are finding the right journey for you</h3>
-    <form class="age-and-gender-form" ng-animate=" 'animate'">
+    <form class="age-and-sex-form" ng-animate=" 'animate'">
         <h3 class="take-a-journey">Take a journey with a refugee</h3>
 
         <div class="your-age">
             <label for="js-age-input" class="big-label">How old are you?</label>
-            <input id="js-age-input" type="text" name="age" placeholder="AGE" pattern="\d*" ng-model="vm.age">  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
+            <input id="js-age-input" type="text" name="age" placeholder="AGE" pattern="\d*" ng-model="vm.age" autocomplete="off">  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
         </div>
 
-        <div class="your-gender">
-            <label for="gender" class="big-label">Gender</label>
-            <input type="radio" value="male" name="gender" id="male" ng-model="vm.gender">
+        <div class="your-sex">
+            <label for="sex" class="big-label">Sex</label>
+            <input type="radio" value="male" name="sex" id="male" ng-model="vm.sex">
             <label class="radio circle" for="male">
                 <span class="selected"></span> Male
             </label>
-            <input type="radio" value="female" name="gender" id="female" ng-model="vm.gender">
+            <input type="radio" value="female" name="sex" id="female" ng-model="vm.sex">
             <label class="radio circle" for="female">
                 <span class="selected"></span> Female
             </label>

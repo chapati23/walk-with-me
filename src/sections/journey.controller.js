@@ -1,6 +1,6 @@
 class JourneyController {
-    constructor(RefugeeService) {
-        this.refugee = RefugeeService.getRefugee();
+    constructor(RefugeeService, $stateParams) {
+        this.refugee = RefugeeService.getRefugee({ id: parseInt($stateParams.refugeeId, 10)});
     }
 }
 

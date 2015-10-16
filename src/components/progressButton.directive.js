@@ -1,6 +1,94 @@
-import ProgressButton from './progressButton';
+import SVG from '/components/svg';
 
-let ProgressButtonDirective = ($state, $timeout, $animate, $rootScope) => {
+class ProgressButtonController {
+    constructor ($element, $timeout, $rootScope) {
+        this.options = {
+            // time in ms that the status (success or error will be displayed) - should be at least higher than the transition-duration value defined for the stroke-dashoffset transition of both checkmark and cross strokes
+            statusTime: 1500
+        };
+
+        this.$element = $element[0];
+        this.$timeout = $timeout;
+        this.$rootScope = $rootScope;
+
+        this.button             = this.$element.querySelector( 'button' );
+        this.formEl             = document.querySelector('.age-and-sex-form');
+        this.searchInProgressEl = document.querySelector('.search-in-progress');
+        this.progressEl         = new SVG( this.$element.querySelector( 'svg.progress-circle' ) );
+        this.successEl          = new SVG( this.$element.querySelector( 'svg.checkmark' ) );
+        this.errorEl            = new SVG( this.$element.querySelector( 'svg.cross' ) );
+
+        this.button.addEventListener( 'click', () => {
+            // by adding the loading class the button will transition to a "circle"
+            this.$element.className += ' loading';
+            this.formEl.className += ' ng-leave';
+            this.searchInProgressEl.className += ' ng-enter-active';
+            this.button.addEventListener( 'transitionend', this.onButtonTransitionEnd.bind(this) );
+            this.$rootScope.$broadcast('submit:ageAndSexForm');
+        });
+
+        this.enableButton();
+    }
+
+    onButtonTransitionEnd (event) {
+        if( event.propertyName !== 'width' ) {
+            return false;
+        }
+
+        this.button.removeEventListener( 'transitionend', this.onButtonTransitionEnd );
+
+        // disable the button - this should have been the first thing to do when clicking the button.
+        // however if we do so Firefox does not seem to fire the transitionend event.
+        this.button.setAttribute( 'disabled', '' );
+
+        let progress = 0;
+        let interval = setInterval( () => {
+            progress = Math.min( progress + Math.random() * 0.1, 1 );
+            this.setProgress( progress );
+
+            if( progress === 1 ) {
+                clearInterval( interval );
+                this.finishLoading(1);
+                this.searchInProgressEl.className = this.searchInProgressEl.className.replace(/ng-enter-active/, 'ng-leave-active');
+                this.$timeout(() => {
+                    this.$rootScope.$broadcast('matching:complete');
+                }, 1000);
+            }
+        }, 100 );
+    }
+
+    setProgress(val) {
+        this.progressEl.draw( val );
+    }
+
+    enableButton() {
+        this.button.removeAttribute( 'disabled' );
+    }
+
+    // runs after the progress reaches 100%
+    finishLoading(status) {
+        // first undraw progress stroke.
+        this.progressEl.draw(0);
+
+        if( typeof status === 'number' ) {
+            let statusClass = status >= 0 ? 'success' : 'error',
+            statusEl = status >= 0 ? this.successEl : this.errorEl;
+
+            // draw stroke of success (checkmark) or error (cross).
+            statusEl.draw( 1 );
+            // add respective class to the element
+            this.$element.className += ' ' + statusClass;
+
+        } else {
+            this.enableButton();
+        }
+        // finally remove class loading.
+        // this.$element.className = this.$element.className.replace(/loading/, 'success');
+    }
+
+}
+
+let ProgressButtonDirective = () => {
     return {
         template: `
         <div class="progress-button">
@@ -11,10 +99,7 @@ let ProgressButtonDirective = ($state, $timeout, $animate, $rootScope) => {
         </div>`,
         replace: true,
         restrict: 'AE',
-
-        link: function (scope, element) {
-            new ProgressButton(element[0], {}, $timeout, $state, $animate, $rootScope);
-        }
+        controller: ProgressButtonController
     };
 };
 

@@ -4,12 +4,12 @@
     </header>
 
     <h3 class="search-in-progress">We are finding the right journey for you</h3>
-    <form class="age-and-sex-form" ng-animate=" 'animate'">
+    <form class="age-and-sex-form" ng-animate=" 'animate' " autocomplete="off">
         <h3 class="take-a-journey">Take a journey with a refugee</h3>
 
         <div class="your-age">
             <label for="js-age-input" class="big-label">How old are you?</label>
-            <input id="js-age-input" type="text" name="age" placeholder="AGE" pattern="\d*" ng-model="vm.age" autocomplete="off">  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
+            <input id="js-age-input" type="text" name="age" placeholder="AGE" pattern="\d*" ng-model="vm.age" />  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
         </div>
 
         <div class="your-sex">

@@ -1,5 +1,10 @@
 class RefugeeService {
-    constructor() {
+    constructor($q, $window, $firebaseArray) {
+        this.$q = $q;
+        this.$firebaseArray = $firebaseArray;
+        this.refugeesRef = new $window.Firebase("https://walk-with-me-database.firebaseio.com/refugees");
+        this.refugeees = $firebaseArray(this.refugeesRef);
+
         this.refugees = [
             {
                 id: 1,
@@ -15,7 +20,7 @@ class RefugeeService {
                 mapUrl: 'map-aleppo-to-berlin.gif',
                 imgUrl: 'zahira.jpg',
                 story: {
-                    whereAreYouFrom: `
+                    whoAreYou: `
                     <p>I was born and raised in Aleppo, a big city in North-West Syria where I've lived my entire live. After high school I met my husband, and we got married shortly after. He was a very successful industrial electrician, and frequently travelled to Germany and Austria for business while I stayed at home and took care of our two wonderful daughters. </p>
                     <p>Things were great before the war. My husband's business was doing very well, and I loved making dresses and colourful clothes for my daughters, which they loved. Sew and knitting clothes is my passion, and if I wasn't busy raising our daughters I would probably be a fashion designer!</p>
                     `,
@@ -33,7 +38,10 @@ class RefugeeService {
                     <p>Since we arrived here in Berlin everybody we've encountered has been friendly. I have nothing but gratitude for the people of Germany for the wonderful treatment my children and I have received so far. It's funny, it feels like here we are treated better than we were treated in our own country.</p>
                     <p>I hope that one day I will be reunited with my husband, and we will have the third child we always wanted... a boy. I want peace for Syria, and to one day return home. I want to see my children grow up in their motherland, free from war and conflict.</p>
                     `
-                }
+                },
+                needsReview: true,
+                createdAt: $window.Firebase.ServerValue.TIMESTAMP,
+                updatedAt: $window.Firebase.ServerValue.TIMESTAMP
             },
             {
                 id: 2,
@@ -49,7 +57,7 @@ class RefugeeService {
                 mapUrl: 'map-cairo-to-berlin.gif',
                 imgUrl: 'hamada.jpg',
                 story: {
-                    whereAreYouFrom: `<p>I was a bodybuilder - one of the best in my country. I finished 1st and 2nd place in two national bodybuilding contests, and was on the way to becoming a professional fitness trainer.</p>`,
+                    whoAreYou: `<p>I was a bodybuilder - one of the best in my country. I finished 1st and 2nd place in two national bodybuilding contests, and was on the way to becoming a professional fitness trainer.</p>`,
                     whyDidYouLeave: `<p>There was an anti-government demonstration in my town, and I took part in it, along with thousands of other young people who were unhappy about our country's political situation. The police intercepted us and fired gunshots at the crowd, and I was shot 3 times, in my arm, chest and hand. They arrested me and sentenced me to 3 years in prison for taking part in the protest. I no longer felt safe in my own country.</p>`,
                     howDidYouTravel: `
                     <p>I had friends living in Libya who heard what had happened and offered to help me cross the border from Egypt. In Libya I was put with a group of families I had never met before - 35 of us in total. We paid smugglers $2500 US Dollars each to let us onto a boat going to Italy. This is the minimum - a lot of people had to pay more. And if you couldn’t pay, they would just shoot you and throw you overboard. After 7 hours on the high seas, suddenly the boat stopped. The smugglers told us that the boat couldn’t go on because it was overloaded. I will never forget what happened next - they just threw 9 people into the Mediterranean sea - 6 men and even 3 women. The rest of us tried to intervene and stop them but they had machine guns and threatened to shoot us. So we were forced to watch innocent people, many of them our countrymen, being thrown into the middle of the ocean. They probably all died. Everyone that seemed weak or ill, they would just throw them overboard like trash.</p>
@@ -61,31 +69,43 @@ class RefugeeService {
                     <p>It would be great to be able to continue my training as a fitness instructor and work here in Germany.</p>
                     <p>The hardest thing right now is the confinement and the feeling that I am not yet free. We cannot do anything until our cases are processed here in Berlin, and mentally that is really tough.</p>
                     `
-                }
+                },
+                needsReview: false,
+                createdAt: $window.Firebase.ServerValue.TIMESTAMP,
+                updatedAt: $window.Firebase.ServerValue.TIMESTAMP
             }
         ];
     }
 
     getRefugee(options) {
+        let deferred = this.$q.defer();
+
         if (!options)  {
-            console.error('Cannot get refugee without search criteria');
-        } else {
-            if (options.id) {
-                return this.refugees.find((refugee) => {
-                    return refugee.id === options.id;
-                });
-            } else if (options.sex) {
-                let refugeeSubset = this.refugees.filter((refugee) => {
-                    return refugee.sex === options.sex;
-                });
-                if (refugeeSubset.length === 1) {
-                    return refugeeSubset[0];
-                } else if (refugeeSubset.length > 1) {
-                    let randomIndex = Math.floor(Math.random() * (refugeeSubset.length + 1));
-                    return refugeeSubset[randomIndex];
-                }
-            }
+            deferred.reject('Cannot get refugee without search criteria');
         }
+
+        if (options.$id) {
+            this.$firebaseArray(this.refugeesRef.orderByKey().equalTo(options.$id))
+            .$loaded((refugee) => {
+                deferred.resolve(refugee[0]);
+            });
+        } else if (options.sex) {
+            this.$firebaseArray(this.refugeesRef.orderByChild('sex').equalTo(options.sex))
+            .$loaded((matchedRefugees) => {
+                if (matchedRefugees && matchedRefugees.length === 1) {
+                    deferred.resolve(matchedRefugees[0]);
+                } else {
+                    let randomIndex = Math.floor(Math.random() * (matchedRefugees.length + 1));
+                    deferred.resolve(matchedRefugees[randomIndex]);
+                }
+            });
+        }
+        return deferred.promise;
+    }
+
+    addRefugee(refugee) {
+        console.log(refugee);
+        // this.users.$add(refugee);
     }
 }
 

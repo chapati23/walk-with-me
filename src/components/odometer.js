@@ -13,7 +13,6 @@ class OdometerController {
         // actually the in-view directive is supposed to pass the $event-object but for some reason
         // it's always undefined. that's why I went with a flag to avoid executing the function
         // everytime the Odometer is being scrolled into view
-        // console.log($index, $inview, $inviewpart, $event);
         this.instance.update(this.target);
         this.shouldOdometerRun = false;
     };

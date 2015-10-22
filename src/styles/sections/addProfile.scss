@@ -1,0 +1,19 @@
+#add-profile {
+  background: transparent url('../images/bg-mobile.jpg') center center no-repeat;
+  background-size: cover;
+  padding: 1rem;
+
+  @media(min-width: 768px) {
+    background-image: url('../images/bg-web.jpg');
+  }
+
+  form {
+    background: rgba(255, 255, 255, .6);
+    margin: 0 auto;
+    width: 500px;
+  }
+
+  .thumb {
+    max-width: 100%;
+  }
+}

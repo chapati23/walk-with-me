@@ -16,3 +16,4 @@ rules:
     no-multi-spaces: 0  // allow use of multiple spaces
     no-new: 1
     quotes: 0
+    no-shadow: 1

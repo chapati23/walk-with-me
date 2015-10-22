@@ -1,4 +1,4 @@
-class SVG {
+class SVGElement {
     constructor(el) {
         this.el = el;
         // the path elements
@@ -22,4 +22,4 @@ class SVG {
     }
 }
 
-export default SVG;
+export default SVGElement;

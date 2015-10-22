@@ -1,4 +1,4 @@
-import SVG from '/components/svg';
+import SVGElement from './svgElement';
 
 class ProgressButtonController {
     constructor ($element, $timeout, $rootScope) {
@@ -14,9 +14,9 @@ class ProgressButtonController {
         this.button             = this.$element.querySelector( 'button' );
         this.formEl             = document.querySelector('.age-and-sex-form');
         this.searchInProgressEl = document.querySelector('.search-in-progress');
-        this.progressEl         = new SVG( this.$element.querySelector( 'svg.progress-circle' ) );
-        this.successEl          = new SVG( this.$element.querySelector( 'svg.checkmark' ) );
-        this.errorEl            = new SVG( this.$element.querySelector( 'svg.cross' ) );
+        this.progressEl         = new SVGElement( this.$element.querySelector( 'svg.progress-circle' ) );
+        this.successEl          = new SVGElement( this.$element.querySelector( 'svg.checkmark' ) );
+        this.errorEl            = new SVGElement( this.$element.querySelector( 'svg.cross' ) );
 
         this.button.addEventListener( 'click', () => {
             // by adding the loading class the button will transition to a "circle"

@@ -6,6 +6,9 @@ env:
 ecmaFeatures:
     modules: true
 
+globals:
+    '$window': true
+
 rules:
     no-alert: 1
     no-unused-vars: [1, {vars: "all", args: "after-used"}]

@@ -44,9 +44,14 @@
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.4.7",
       "angular-animate": "github:angular/bower-angular-animate@^1.4.7",
+      "angular-elastic": "npm:angular-elastic@^2.5.0",
       "angular-inview": "npm:angular-inview@^1.5.0",
       "angular-sanitize": "github:angular/bower-angular-sanitize@^1.4.7",
       "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
+      "angularfire": "github:firebase/angularfire@^1.1.3",
+      "api-check": "npm:api-check@^7.5.3",
+      "firebase": "github:firebase/firebase-bower@^2.3.1",
+      "ng-file-upload": "npm:ng-file-upload@^9.0.19",
       "odometer": "bower:odometer@^0.4.7"
     },
     "devDependencies": {

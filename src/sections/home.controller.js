@@ -20,7 +20,7 @@ class HomeController {
         $rootScope.$on('matching:complete', () => {
             $rootScope.$$listeners['matching:complete'] = [];
 
-            $state.go('journey', { refugeeName: this.refugee.name.toLowerCase(), refugeeId: this.refugee.$id});
+            $state.go('journey', { refugeeName: this.refugee.name.toLowerCase().split(/ /)[0], refugeeId: this.refugee.$id});
         });
     }
 }

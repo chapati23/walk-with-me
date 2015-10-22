@@ -1,12 +1,14 @@
 export default class AddProfileController {
-    constructor(Upload, $timeout) {
+    constructor(Upload, $timeout, $window, $firebaseArray) {
         this.Upload = Upload;
         this.$timeout = $timeout;
+        this.$window = $window;
+        this.$firebaseArray = $firebaseArray;
+        this.refugeesRef = new $window.Firebase("https://walk-with-me-database.firebaseio.com/refugees");
+        this.refugees = this.$firebaseArray(this.refugeesRef);
 
         // TODO: turn this into this.refugee = new Refugee() and connect to backend
-        this.refugee = {
-            id: 3
-        };
+        this.refugee = {};
     }
 
     uploadPhoto(file) {
@@ -19,7 +21,7 @@ export default class AddProfileController {
             this.$timeout(() => {
                 console.log('response:', response.data);
                 file.result = response.data;
-                this.refugee.photo = file;
+                this.photo = file;
             });
         }, (response) => {
             if (response.status > 0) {
@@ -34,6 +36,13 @@ export default class AddProfileController {
     }
 
     onSubmit() {
-        console.log('submit it!!', event);
+
+        // if valid
+        this.refugee.createdAt = new Date();
+        this.refugee.updatedAt = new Date();
+
+        console.log('submit it!!', this.refugee);
+
+        // this.refugees.$add(this.refugee);
     }
 }

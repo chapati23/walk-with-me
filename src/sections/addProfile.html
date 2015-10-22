@@ -4,17 +4,18 @@
     </header>
 
     <h2>Add A Profile</h2>
+
     <form ng-submit="vm.onSubmit()" name="vm.form" autocomplete="off">
 
         <li class="photo input-group">
-            <img ng-show="vm.form.file.$valid" ngf-thumbnail="vm.refugee.photo" class="thumb">
-            <button ng-show="vm.form.file.$invalid" type="file" ngf-select="vm.uploadPhoto($file)" ng-model="vm.refugee.photo" name="file" accept="image/*" ngf-max-size="10MB" required>Select Photo</button>
-            <i ng-show="vm.form.file.$error.maxSize">File too large {{vm.refugee.photo.size / 1000000|number:1}}MB: max 20MB</i>
-            <button ng-click="vm.refugee.photo = null" ng-show="vm.refugee.photo">Remove</button>
-            <span class="progress" ng-show="vm.refugee.photo.progress >= 0">
-                <div style="width:{{vm.refugee.photo.progress}}%" ng-bind="vm.refugee.photo.progress + '%'"></div>
+            <img ng-show="vm.form.file.$valid" ngf-thumbnail="vm.photo" class="thumb">
+            <button ng-show="vm.form.file.$invalid" type="file" ngf-select="vm.uploadPhoto($file)" ng-model="vm.photo" name="file" accept="image/*" ngf-max-size="10MB" required>Select Photo</button>
+            <i ng-show="vm.form.file.$error.maxSize">File too large {{vm.photo.size / 1000000|number:1}}MB: max 20MB</i>
+            <button ng-click="vm.photo = null" ng-show="vm.photo">Remove</button>
+            <span class="progress" ng-show="vm.photo.progress >= 0">
+                <div style="width:{{vm.photo.progress}}%" ng-bind="vm.photo.progress + '%'"></div>
             </span>
-            <span ng-show="vm.refugee.photo.result">Upload Successful</span>
+            <span ng-show="vm.photo.result">Upload Successful</span>
             <span class="err" ng-show="vm.errorMsg">{{vm.errorMsg}}</span>
         </li>
 
@@ -80,7 +81,8 @@
             <textarea msd-elastic id="what-do-you-wish-for" rows="3" ng-model="vm.refugee.story.whatDoYouWishFor" placeholder="I hope that one day I will be reunited with my husband, and we will have the third child we always wanted... a boy. I want peace for Syria, and…"></textarea>
         </li>
 
-        <button type="submit" class="call-to-action" ng-disabled="vm.form.$invalid">Submit</button>
+        <!-- <button type="submit" class="call-to-action" ng-disabled="vm.form.$invalid">Submit</button> -->
+        <button type="submit" class="call-to-action">Submit</button>
     </form>
 
 </section>

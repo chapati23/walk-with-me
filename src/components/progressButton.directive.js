@@ -3,8 +3,8 @@ import SVGElement from './svgElement';
 class ProgressButtonController {
     constructor ($element, $timeout, $rootScope) {
         this.options = {
-            // time in ms that the status (success or error will be displayed) - should be at least higher than the transition-duration value defined for the stroke-dashoffset transition of both checkmark and cross strokes
-            statusTime: 1500
+            progressInterval: 100,
+            timeoutBeforeNavigatingToRefugeeProfile: 800
         };
 
         this.$element = $element[0];
@@ -50,11 +50,12 @@ class ProgressButtonController {
                 clearInterval( interval );
                 this.finishLoading(1);
                 this.searchInProgressEl.className = this.searchInProgressEl.className.replace(/ng-enter-active/, 'ng-leave-active');
+                this.$element.className += ' ng-leave-active';
                 this.$timeout(() => {
                     this.$rootScope.$broadcast('matching:complete');
-                }, 1000);
+                }, this.options.timeoutBeforeNavigatingToRefugeeProfile);
             }
-        }, 100 );
+        }, this.options.progressInterval );
     }
 
     setProgress(val) {

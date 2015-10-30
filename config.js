@@ -28,6 +28,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.25",
     "core-js": "npm:core-js@1.2.1",
     "firebase": "github:firebase/firebase-bower@2.3.1",
+    "jssha": "github:Caligatio/jsSHA@2.0.1",
     "ng-file-upload": "npm:ng-file-upload@9.0.19",
     "odometer": "bower:odometer@0.4.7",
     "github:angular-ui/ui-router@0.2.15": {

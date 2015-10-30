@@ -23,11 +23,11 @@ export default class AddProfileController {
         this.Upload.upload({
             url: this.CONFIG.imgUploadUrl,
             data: {
-                api_key: this.CONFIG.imgUploadApiKey,
+                'api_key': this.CONFIG.imgUploadApiKey,
                 file: file,
-                public_id: 'refugees/' + this.refugee.id,
+                'public_id': 'refugees/' + this.refugee.id,
                 // signature: signature,
-                upload_preset: 'nchlgavx',
+                'upload_preset': 'nchlgavx',
                 timestamp: new Date().getTime()
             }
         }).then((response) => {

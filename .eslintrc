@@ -17,3 +17,4 @@ rules:
     no-new: 1
     quotes: 0
     no-shadow: 1
+    new-cap: 1

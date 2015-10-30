@@ -1,17 +1,27 @@
 <section id="add-profile">
     <header>
-        <img src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin" width="230"/>
+        <img ui-sref="home" src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin" width="230"/>
     </header>
 
     <h2>Add A Profile</h2>
 
-    <form ng-submit="vm.onSubmit()" name="vm.form" autocomplete="off">
+    <form ng-submit="vm.onSubmit()" name="vm.form" autocomplete="off" novalidate>
 
         <li class="photo input-group">
             <img ng-show="vm.form.file.$valid" ngf-thumbnail="vm.photo" class="thumb">
-            <button ng-show="vm.form.file.$invalid" type="file" ngf-select="vm.uploadPhoto($file)" ng-model="vm.photo" name="file" accept="image/*" ngf-max-size="10MB" required>Select Photo</button>
+            <button type="file"
+                    ng-show="vm.form.file.$invalid"
+                    ngf-select="vm.uploadPhoto($file)"
+                    ng-model="vm.photo"
+                    name="file"
+                    accept="image/*"
+                    ngf-max-size="10MB"
+                    required>Select Photo
+            </button>
+
             <i ng-show="vm.form.file.$error.maxSize">File too large {{vm.photo.size / 1000000|number:1}}MB: max 20MB</i>
             <button ng-click="vm.photo = null" ng-show="vm.photo">Remove</button>
+
             <span class="progress" ng-show="vm.photo.progress >= 0">
                 <div style="width:{{vm.photo.progress}}%" ng-bind="vm.photo.progress + '%'"></div>
             </span>
@@ -21,7 +31,7 @@
 
         <li class="name input-group">
             <label for="name">Name</label>
-            <input id="name" type="text" ng-model="vm.refugee.name" placeholder="Zahira Musterfrau" />
+            <input id="name" type="text" ng-model="vm.refugee.name" placeholder="Zahira Musterfrau" required />
         </li>
 
         <li class="sex input-group">
@@ -38,47 +48,47 @@
 
         <li class="age input-group">
             <label for="age">Age</label>
-            <input id="age" type="number" ng-model="vm.refugee.age" pattern="\d*" placeholder="27" />  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
+            <input id="age" type="number" ng-model="vm.refugee.age" pattern="\d*" placeholder="27" required />  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
         </li>
 
         <li class="country input-group">
             <label for="country">Home Country</label>
-            <input id="country" type="text" ng-model="vm.refugee.homeCountry" placeholder="Syria" />
+            <input id="country" type="text" ng-model="vm.refugee.homeCountry" placeholder="Syria" required />
         </li>
 
         <li class="hometown input-group">
             <label for="hometown">Hometown</label>
-            <input id="hometown" type="text" ng-model="vm.refugee.homeTown" placeholder="Aleppo" />
+            <input id="hometown" type="text" ng-model="vm.refugee.homeTown" placeholder="Aleppo" required />
         </li>
 
         <li class="current-country input-group">
             <label for="current-country">Current Country</label>
-            <input id="current-country" type="text" ng-model="vm.refugee.currentCountry" placeholder="Germany" />
+            <input id="current-country" type="text" ng-model="vm.refugee.currentCountry" placeholder="Germany" required />
         </li>
 
         <li class="current-city input-group">
             <label for="current-city">Current City</label>
-            <input id="current-city" type="text" ng-model="vm.refugee.currentCity" placeholder="Berlin" />
+            <input id="current-city" type="text" ng-model="vm.refugee.currentCity" placeholder="Berlin" required />
         </li>
 
         <li class="who-are-you input-group textarea">
             <label for="who-are-you">Who are you?</label>
-            <textarea msd-elastic id="who-are-you" rows="3" ng-model="vm.refugee.story.whoAreYou" placeholder="I was born and raised in Aleppo, a big city in North-West Syria where I've lived my entire live. After high school I met my husband and…"></textarea>
+            <textarea msd-elastic id="who-are-you" rows="3" ng-model="vm.refugee.story.whoAreYou" placeholder="I was born and raised in Aleppo, a big city in North-West Syria where I've lived my entire live. After high school I met my husband and…" required></textarea>
         </li>
 
         <li class="why-did-you-leave input-group textarea">
             <label for="why-did-you-leave">Why did you leave?</label>
-            <textarea msd-elastic id="why-did-you-leave" rows="3" ng-model="vm.refugee.story.whyDidYouLeave" placeholder="The war began, and everything changed. At first we didn't think it would affect us, but then one day…"></textarea>
+            <textarea msd-elastic id="why-did-you-leave" rows="3" ng-model="vm.refugee.story.whyDidYouLeave" placeholder="The war began, and everything changed. At first we didn't think it would affect us, but then one day…" required></textarea>
         </li>
 
         <li class="how-did-you-travel input-group textarea">
             <label for="how-did-you-travel">How did you travel?</label>
-            <textarea msd-elastic id="how-did-you-travel" rows="3" ng-model="vm.refugee.story.howDidYouTravel" placeholder="We escaped town and found our way to a convoy of cars all going in the same direction. We arrived at the border town and paid a group of people to…"></textarea>
+            <textarea msd-elastic id="how-did-you-travel" rows="3" ng-model="vm.refugee.story.howDidYouTravel" placeholder="We escaped town and found our way to a convoy of cars all going in the same direction. We arrived at the border town and paid a group of people to…" required></textarea>
         </li>
 
         <li class="what-do-you-wish-for input-group textarea">
             <label for="what-do-you-wish-for">What do you wish for?</label>
-            <textarea msd-elastic id="what-do-you-wish-for" rows="3" ng-model="vm.refugee.story.whatDoYouWishFor" placeholder="I hope that one day I will be reunited with my husband, and we will have the third child we always wanted... a boy. I want peace for Syria, and…"></textarea>
+            <textarea msd-elastic id="what-do-you-wish-for" rows="3" ng-model="vm.refugee.story.whatDoYouWishFor" placeholder="I hope that one day I will be reunited with my husband, and we will have the third child we always wanted... a boy. I want peace for Syria, and…" required></textarea>
         </li>
 
         <!-- <button type="submit" class="call-to-action" ng-disabled="vm.form.$invalid">Submit</button> -->

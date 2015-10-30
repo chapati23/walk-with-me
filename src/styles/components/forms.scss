@@ -100,3 +100,15 @@ input[type="radio"]:checked + label.circle {
 input[type="radio"]:checked + label.circle .selected {
   background: $turquoise;
 }
+
+
+/*-------- Validations ---------*/
+input[type=text], input[type=number], textarea {
+  &.ng-valid.ng-touched {
+    background: lightgreen;
+  }
+
+  &.ng-invalid.ng-touched {
+    background: indianred;
+  }
+}

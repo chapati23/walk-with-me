@@ -22,8 +22,8 @@ import ProgressButtonDirective from './components/progressButton.directive';
 
 angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'angular-inview', 'monospaced.elastic', 'ngFileUpload', 'firebase'])
 .constant('CONFIG', {
-    databaseUrl: 'https://walk-with-me-database.firebaseio.com/refugees',
-    imgUploadUrl: 'https://api.cloudinary.com/v1_1/chapati/image/upload',
+    databaseUrl: 'http://walk-with-me-database.firebaseio.com/refugees',
+    imgUploadUrl: 'http://api.cloudinary.com/v1_1/chapati/image/upload',
     imgUploadApiKey: '921313781115659',
     imgUploadApiSecret: '-pLXQD9GiXjESJkfsM4QC88zAsc'
 })

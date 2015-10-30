@@ -1,8 +1,8 @@
 class RefugeeService {
-    constructor($q, $window, $firebaseArray) {
+    constructor($q, $window, $firebaseArray, CONFIG) {
         this.$q = $q;
         this.$firebaseArray = $firebaseArray;
-        this.refugeesRef = new $window.Firebase("https://walk-with-me-database.firebaseio.com/refugees");
+        this.refugeesRef = new $window.Firebase(CONFIG.databaseUrl);
     }
 
     getRefugee(options) {

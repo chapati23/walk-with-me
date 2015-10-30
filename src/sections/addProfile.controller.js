@@ -28,7 +28,7 @@ export default class AddProfileController {
                 'public_id': 'refugees/' + this.refugee.id,
                 // signature: signature,
                 'upload_preset': 'nchlgavx',
-                timestamp: new Date().getTime()
+                timestamp: timestamp
             }
         }).then((response) => {
             this.$timeout(() => {

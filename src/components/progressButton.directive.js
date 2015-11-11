@@ -12,7 +12,7 @@ class ProgressButtonController {
         this.$rootScope = $rootScope;
 
         this.button             = this.$element.querySelector( 'button' );
-        this.formEl             = document.querySelector('.age-and-sex-form');
+        this.formEl             = document.querySelector('.age-form');
         this.searchInProgressEl = document.querySelector('.search-in-progress');
         this.progressEl         = new SVGElement( this.$element.querySelector( 'svg.progress-circle' ) );
         this.successEl          = new SVGElement( this.$element.querySelector( 'svg.checkmark' ) );
@@ -93,6 +93,7 @@ let ProgressButtonDirective = () => {
     return {
         template: `
         <div class="progress-button">
+            <h3 class="search-in-progress">We are finding the right journey for you</h3>
             <button><span>Walk with me&nbsp;&rarr;</span></button>
             <svg class="progress-circle" width="70" height="70"><path d="m35,2.5c17.955803,0 32.5,14.544199 32.5,32.5c0,17.955803 -14.544197,32.5 -32.5,32.5c-17.955803,0 -32.5,-14.544197 -32.5,-32.5c0,-17.955801 14.544197,-32.5 32.5,-32.5z"/></svg>
             <svg class="checkmark" width="58" height="58"><path d="m31.5,46.5l15.3,-23.2"/><path d="m31.5,46.5l-8.5,-7.1"/></svg>

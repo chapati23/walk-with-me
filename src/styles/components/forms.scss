@@ -5,8 +5,8 @@
   @include font-base();
   display: block;
   color: #232323;
-  font-size: 1.6rem;
-  margin-bottom: .5rem;
+  font-size: 1.6em;
+  margin-bottom: .5em;
   font-style: italic;
   text-rendering: geometricPrecision;
 }
@@ -28,8 +28,8 @@ input[type=text], input[type=number], textarea {
   background: transparent;
   border-width: 0;
   border-bottom: 2px solid $turquoise;
-  font-size: 1rem;
-  padding: .5rem;
+  font-size: 1em;
+  padding: .5em;
   text-align: center;
 
   &:focus {

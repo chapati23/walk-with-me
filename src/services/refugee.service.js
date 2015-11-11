@@ -6,32 +6,28 @@ class RefugeeService {
     }
 
     getRefugee(options) {
-        let deferred = this.$q.defer();
+        let q = this.$q.defer();
 
         if (!options)  {
-            deferred.reject('Cannot get refugee without search criteria');
+            q.reject('Cannot get refugee without search criteria');
         }
 
         if (options.$id) {
             this.$firebaseArray(this.refugeesRef.orderByKey().equalTo(options.$id))
-            .$loaded((refugee) => {
-                deferred.resolve(refugee[0]);
-            });
-        } else if (options.sex) {
-            this.$firebaseArray(this.refugeesRef.orderByChild('sex').equalTo(options.sex))
-            .$loaded((matchedRefugees) => {
-                if (matchedRefugees && matchedRefugees.length === 1) {
-                    console.log('matched 1');
-                    deferred.resolve(matchedRefugees[0]);
-                } else {
-                    let randomIndex = Math.floor(Math.random() * (matchedRefugees.length));
-                    console.log('matched 2', randomIndex);
-                    deferred.resolve(matchedRefugees[randomIndex]);
-                }
-            });
+                .$loaded(refugee => q.resolve(refugee[0]));
+        } else {
+            this.$firebaseArray(this.refugeesRef)
+                .$loaded((matchedRefugees) => {
+                    if (matchedRefugees && matchedRefugees.length === 1) {
+                        q.resolve(matchedRefugees[0]);
+                    } else {
+                        let randomIndex = Math.floor(Math.random() * (matchedRefugees.length));
+                        q.resolve(matchedRefugees[randomIndex]);
+                    }
+                });
         }
 
-        return deferred.promise;
+        return q.promise;
     }
 
     addRefugee(refugee) {

@@ -3,25 +3,11 @@
         <img ui-sref="home" src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin" width="230"/>
     </header>
 
-    <h3 class="search-in-progress">We are finding the right journey for you</h3>
-    <form class="age-and-sex-form" ng-animate=" 'animate' " autocomplete="off">
+    <form class="age-form" ng-animate=" 'animate' " autocomplete="off">
         <h3 class="take-a-journey">Take a journey with a refugee</h3>
-
         <div class="your-age">
             <label for="js-age-input" class="big-label">How old are you?</label>
             <input id="js-age-input" type="text" name="age" placeholder="AGE" pattern="\d*" ng-model="vm.age" />  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
-        </div>
-
-        <div class="your-sex">
-            <label for="sex" class="big-label">Sex</label>
-            <input type="radio" value="male" name="sex" id="male" ng-model="vm.sex">
-            <label class="radio circle" for="male">
-                <span class="selected"></span> Male
-            </label>
-            <input type="radio" value="female" name="sex" id="female" ng-model="vm.sex">
-            <label class="radio circle" for="female">
-                <span class="selected"></span> Female
-            </label>
         </div>
     </form>
     <progress-button></progress-button>

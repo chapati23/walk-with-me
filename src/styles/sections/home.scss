@@ -1,20 +1,18 @@
 #home {
   background: transparent url('../images/bg-mobile.jpg') center center no-repeat;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   padding: 1rem;
+  position: relative;
 
   @media(min-width: 768px) {
     background-image: url('../images/bg-web.jpg');
   }
 
   .age-form {
-    font-size: 1rem;
+    font-size: 1em;
     left: 50%;
     position: absolute;
-    top: 30%;
+    top: 33%;
     transform: translateX(-50%);
     transition: all 200ms ease-in;
     width: 100%;
@@ -36,15 +34,15 @@
       }
     }
 
-    @media ( min-width: 321px ) and ( max-width: 375px ) {
+    @media ( min-device-width: 321px ) and ( max-device-width: 375px ) {
       font-size: 1.1rem;
     }
 
-    @media ( min-width: 376px ) and ( max-width: 414px ) {
+    @media ( min-device-width: 376px ) and ( max-device-width: 414px ) {
       font-size: 1.2rem;
     }
 
-    @media ( min-width: 415px ) {
+    @media ( min-device-width: 415px ) {
       font-size: 1.3rem;
     }
   }

@@ -1,19 +1,16 @@
 class HomeController {
     constructor(RefugeeService, $rootScope, $state) {
 
-        $rootScope.$on('submit:ageAndSexForm', () => {
-            $rootScope.$$listeners['submit:ageAndSexForm'] = [];
+        $rootScope.$on('submit:ageForm', () => {
+            $rootScope.$$listeners['submit:ageForm'] = [];
 
             let formParams = {
                 age: document.querySelector('input[name="age"]').value
             };
 
             RefugeeService.getRefugee(formParams)
-            .then((refugee) => {
-                this.refugee = refugee;
-            }, (error) => {
-                console.error(error);
-            });
+                .then(refugee => this.refugee = refugee)
+                .catch(error => console.error(error));
         });
 
         $rootScope.$on('matching:complete', () => {

@@ -16,11 +16,6 @@ $progressButtonHeight: 58px;
   button {
     border: 2px solid #536c75;
 
-    &:hover {
-      background-color: #1ECD97;
-      color: #fff;
-    }
-
     &:focus { outline: none; }
 
     /* Text (transition for when returning to initial state) */

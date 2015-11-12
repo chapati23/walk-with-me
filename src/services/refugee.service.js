@@ -16,7 +16,7 @@ class RefugeeService {
             this.$firebaseArray(this.refugeesRef.orderByKey().equalTo(options.$id))
                 .$loaded(refugee => q.resolve(refugee[0]));
         } else {
-            this.$firebaseArray(this.refugeesRef)
+            this.$firebaseArray(this.refugeesRef.orderByChild('needsReview').equalTo(false))
                 .$loaded((matchedRefugees) => {
                     if (matchedRefugees && matchedRefugees.length === 1) {
                         q.resolve(matchedRefugees[0]);
@@ -28,11 +28,6 @@ class RefugeeService {
         }
 
         return q.promise;
-    }
-
-    addRefugee(refugee) {
-        console.log(refugee);
-        // this.users.$add(refugee);
     }
 }
 

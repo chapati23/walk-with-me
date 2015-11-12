@@ -1,12 +1,13 @@
 import angular from 'angular';
 import 'angular-animate';
-import 'angular-ui-router';
-import 'angular-sanitize';
-import 'angular-inview';
 import 'angular-elastic';
-import 'ng-file-upload';
-import 'firebase';
+import 'angular-inview';
+import 'angular-messages';
+import 'angular-sanitize';
+import 'angular-ui-router';
 import 'angularfire';
+import 'firebase';
+import 'ng-file-upload';
 
 // Controllers
 import HomeController from './sections/home.controller';
@@ -20,7 +21,7 @@ import RefugeeService from './services/refugee.service';
 import OdometerDirective from './components/odometer';
 import ProgressButtonDirective from './components/progressButton.directive';
 
-angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'angular-inview', 'monospaced.elastic', 'ngFileUpload', 'firebase'])
+angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'ngMessages', 'angular-inview', 'monospaced.elastic', 'ngFileUpload', 'firebase'])
 .constant('CONFIG', {
     databaseUrl: 'http://walk-with-me-database.firebaseio.com/refugees',
     imgUploadUrl: 'http://api.cloudinary.com/v1_1/chapati/image/upload',
@@ -50,10 +51,17 @@ angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'angular-i
         }
     })
 
-    .state('add-profile', {
+    .state('addProfile', {
         url: '/add-profile',
         templateUrl: 'sections/addProfile.html',
         controller: AddProfileController,
+        controllerAs: 'vm'
+    })
+
+    .state('profileAdded', {
+        url: '/profile-added',
+        templateUrl: 'sections/profileAdded.html',
+        controller: () => {},
         controllerAs: 'vm'
     });
 

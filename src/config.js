@@ -20,6 +20,7 @@ System.config({
     "angular-elastic": "npm:angular-elastic@2.5.0",
     "angular-es6": "npm:angular-es6@1.0.3",
     "angular-inview": "npm:angular-inview@1.5.0",
+    "angular-messages": "github:angular/bower-angular-messages@1.4.7",
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.4.7",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "angularfire": "github:firebase/angularfire@1.1.3",

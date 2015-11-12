@@ -1,7 +1,4 @@
 header {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: inline-block; // preven margin-collapse
   margin: 1.5rem 0;
 }

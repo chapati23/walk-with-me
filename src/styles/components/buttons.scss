@@ -17,4 +17,10 @@ button, .button {
   &.call-to-action {
     background: $orange;
   }
+
+  &[disabled="disabled"] {
+    background: $mid-grey;
+    color: $light-grey;
+    opacity: .5;
+  }
 }

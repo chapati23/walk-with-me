@@ -22,7 +22,7 @@ a {
 
 
 /*-------- Inputs ---------*/
-input[type=text], input[type=number], textarea {
+input[type=text], input[type=number], input[type=email], textarea {
   @include font-header();
   background: transparent;
   border-width: 0;
@@ -70,6 +70,26 @@ textarea {
     label {
       margin-bottom: .5rem;
     }
+
+  }
+
+  &.checkbox {
+    display: flex;
+    flex-wrap: wrap;
+
+    input[type=checkbox] {
+      cursor: pointer;
+      flex: 0 0 15px;
+      margin-left: .5rem;
+    }
+
+    label {
+      flex: 1;
+    }
+
+    .icon {
+      top: -5px;
+    }
   }
 }
 
@@ -116,9 +136,15 @@ input[type="radio"]:checked + label.circle .selected {
     top: 22px;
     width: 24px;
   }
+
+  &.textarea {
+    .icon {
+      top: -5px;
+    }
+  }
 }
 
-input[type=text], input[type=number], textarea {
+input[type=text], input[type=number], input[type=email], textarea {
   &.ng-valid.ng-touched {
     border-color: $turquoise;
   }
@@ -132,8 +158,13 @@ input[type=text], input[type=number], textarea {
   }
 }
 
-.error-message {
+.error-messages {
+  text-align: left;
+}
+
+.error-msg {
   color: indianred;
+  display: inline-block;
   font-size: .8rem;
   padding: .5rem;
 }

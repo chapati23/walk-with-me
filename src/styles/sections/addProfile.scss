@@ -1,5 +1,5 @@
 #add-profile {
-  background: transparent url('../images/bg-mobile.jpg') center center no-repeat;
+  background: transparent url('../images/bg-mobile.jpg') center center no-repeat fixed;
   background-size: cover;
   padding: 1rem;
 
@@ -12,7 +12,7 @@
   }
 
   form {
-    background: rgba(255, 255, 255, .6);
+    background: rgba(255, 255, 255, .85);
     margin: 0 auto;
     padding: 1rem;
   }
@@ -37,5 +37,20 @@
 
   .thumb {
     max-width: 100%;
+  }
+
+  .terms {
+    font-size: .8rem;
+    text-align: left;
+    transition: all linear 200ms;
+    padding: .5rem;
+
+    &.ng-hide {
+      opacity: 0;
+    }
+
+    &.ng-show {
+      opacity: 1;
+    }
   }
 }

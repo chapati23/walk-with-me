@@ -145,6 +145,40 @@
                 </div>
             </li>
 
+            <li class="email input-group">
+                <label for="email">What's the uploader's Email?</label>
+                <input id="email" type="email" name="email" ng-model="vm.refugee.email" placeholder="peter.parker@abc.com" required />
+                <img src="images/icons/checkmark.svg" ng-if="form.email.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="images/icons/error.svg" ng-if="form.email.$touched && form.email.$invalid" class="icon error" alt="Error Icon" />
+                <div ng-if="form.email.$touched && form.email.$invalid" ng-messages='form.email.$error' class='error-messages'>
+                    <span ng-message='required' class="error-msg">What is your personal email address?<br><br>In case we have further questions regarding this profile. Don't worry, we will not send you any spam, newsletters or else without your prior agreement ;)</span>
+                    <span ng-message='email' class="error-msg">This doesn't look like a valid email address. A typo, maybe?</span>
+                </div>
+            </li>
+
+            <li class="disclaimer input-group checkbox">
+                <input id="disclaimer" type="checkbox" name="disclaimer" ng-model="vm.refugee.disclaimer" required />
+                <label for="disclaimer">I agree with the <a href="" ng-click="vm.showTerms = !vm.showTerms">Terms &amp; Conditions</a></label>
+                <img src="images/icons/checkmark.svg" ng-if="form.disclaimer.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="images/icons/error.svg" ng-if="form.disclaimer.$touched && form.disclaimer.$invalid" class="icon error" alt="Error Icon" />
+                <p class="terms" ng-show="vm.showTerms">
+                    I hereby grant WalkWithMe.berlin the right and permission to use any images and text I upload.
+                    I declare that I am the owner of any images and text I upload, and that I have permission to upload it for the purposes described here.
+                    <br>
+                    <br>
+                    I understand that WalkWithMe.berlin may use, re-use, publish and re-publish my content in whole or in part, in any medium now or hereafter known, and for any purpose whatsoever.
+                    It is agreed that my email addresses will not appear online or be made publically available.
+                    <br>
+                    <br>
+                    I also understand that at anytime if I want my image or information I submit removed, I must email WalkWithMe.berlin at walkwithme@govolunteer.com and it will be removed within a reasonable period of time.
+                    I hereby release and discharge WalkWithMe.berlin from all and any claims and demands ensuing from or in connection with the use of the photographic image or information I submit online, including any and all claims for libel and invasion of privacy.
+                </p>
+                <div ng-if="form.disclaimer.$touched && form.disclaimer.$invalid" ng-messages='form.disclaimer.$error' class='error-messages'>
+                    <span ng-message='required' class="error-msg">Please agree to the terms above. Without agreement, we can't use the information you just provided.</span>
+                </div>
+            </li>
+
+
             <li class="input-group"><button ng-click="vm.onSubmit()" type="submit" ng-disabled="form.$invalid" class="call-to-action">Submit</button></li>
         </ul>
     </form>

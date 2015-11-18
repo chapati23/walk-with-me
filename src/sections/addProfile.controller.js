@@ -11,6 +11,7 @@ export default class AddProfileController {
         this.refugeesRef = new $window.Firebase(this.CONFIG.databaseUrl);
         this.refugees = this.$firebaseArray(this.refugeesRef);
         this.refugee = {};
+        this.showTerms = false;
     }
 
     uploadPhoto(file) {

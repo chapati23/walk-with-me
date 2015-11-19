@@ -7,7 +7,13 @@ ecmaFeatures:
     modules: true
 
 globals:
-    '$window': true
+    $window: true
+    describe: true
+    it: true
+    inject: true
+    beforeEach: true
+    expect: true
+
 
 rules:
     no-alert: 1

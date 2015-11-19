@@ -1,15 +1,4 @@
 <section id="home">
-    <header>
-        <img ui-sref="home" src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin" width="230"/>
-    </header>
-
-    <form class="age-form" ng-animate=" 'animate' " autocomplete="off">
-        <h3 class="take-a-journey">Take a journey with a refugee</h3>
-        <div class="your-age">
-            <label for="js-age-input" class="big-label">How old are you?</label>
-            <input id="js-age-input" type="text" name="age" placeholder="AGE" pattern="\d*" ng-model="vm.age" required />  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
-        </div>
-    </form>
-    <progress-button></progress-button>
-
+    <header><img ui-sref="home" src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin" width="230"/></header>
+    <age-form></age-form>
 </section>

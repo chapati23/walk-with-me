@@ -1,8 +1,8 @@
-// generated on 2015-08-14 using generator-gulp-websrc 1.0.3
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
+import modRewrite from './jspm_packages/npm/connect-modrewrite@0.8.2/index.js';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -94,15 +94,25 @@ gulp.task( 'js:bundle', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['js:inject', 'styles', 'fonts'], () => {
-    browserSync({
-        notify: false,
-        port: 9000,
-        browser: 'google chrome',
+
+
+function browserSyncInit(baseDir) {
+    browserSync.instance = browserSync.init({
+        startPath: '/',
         server: {
-            baseDir: ['.tmp', 'src']
-        }
+            baseDir: baseDir,
+            middleware: modRewrite([ '^[^\\.]*$ /index.html [L]' ]),
+            routes: {
+                '/jspm_packages': 'jspm_packages',
+                '/config.js': 'config.js'
+            }
+        },
+        browser: 'Google Chrome'
     });
+}
+
+gulp.task('serve', ['js:inject', 'styles', 'fonts'], () => {
+    browserSyncInit(['.tmp', 'src']);
 
     gulp.watch([
         'src/**/*.html',
@@ -119,14 +129,7 @@ gulp.task('serve', ['js:inject', 'styles', 'fonts'], () => {
 });
 
 gulp.task('serve:dist', () => {
-    browserSync({
-        notify: false,
-        port: 9000,
-        browser: 'google chrome',
-        server: {
-            baseDir: ['dist']
-        }
-    });
+    browserSyncInit('dist');
 });
 
 gulp.task('build', ['js:lint', 'js:inject:dist', 'js:bundle', 'html', 'styles', 'images', 'fonts', 'copy:extras'], () => {

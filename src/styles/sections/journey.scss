@@ -1,29 +1,49 @@
+$map-height: 460px;
+
 #journey {
-
   header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: $layout-s;
+
+    @media(min-width: $layout-m) {
+      flex-direction: row;
+      max-width: $page-max-width;
+    }
   }
 
-  h1 {
-    color: $mid-grey;
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
-    font-weight: 300;
-  }
+  .header-logo {
+    flex: 1 1 100%;
 
-  .route {
-    @include font-header();
-    font-size: 1.6rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: $dark-grey;
+    .sub-image {
+      text-align: center;
+      margin: 1.8rem auto 0.6rem;
+
+      img {
+        width: 200px;
+      }
+    }
+
+    h1 {
+      color: $mid-grey;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
   }
 
   .header-image {
-    height: 27em;
+    flex: 1 1 50%;
+    max-height: $map-height;
     overflow: hidden;
     position: relative;
+
+    @media(min-width: $layout-m) {
+      height: $map-height;
+    }
 
     &::after {
       content: "";
@@ -42,19 +62,32 @@
   }
 
   .header-info {
-    text-align: center;
-    width: 100%;
-    position: relative;
-    z-index: 0;
+    flex: 1 1 50%;
+    max-height: $map-height;
     padding-top: .5rem;
-  }
 
-  .sub-image {
-    text-align: center;
-    margin: 1.8rem auto 0.6rem;
+    @media(min-width: $layout-m) {
+      padding-top: 0;
+    }
 
-    img {
-      width: 12rem;
+    .route {
+      @include font-header();
+      color: $dark-grey;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      margin-top: 6px;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, .9);
+      text-transform: uppercase;
+    }
+
+    .route-map {
+      margin: 0 auto -3px; // -3px to account for phantom margin that shouldn't occur. oh mysterious box model…
+      width: 100%;
+
+      @media(min-width: $layout-m) {
+        width: auto;
+      }
     }
   }
 
@@ -76,14 +109,57 @@
     }
   }
 
-  .route-map {
+  article {
+    background: transparent url('../images/grunge-white-top.jpg') left -55px no-repeat;
+    line-height: 1.5;
     max-width: $content-max-width;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 2rem;
 
-    img {
-      width: 100%;
-      vertical-align: bottom;
+    @media(max-width: $layout-m) {
+      box-shadow: none;
+      margin: 0 auto;
+    }
+
+    @media(min-width: $layout-m) {
+      background: white;
+    }
+
+    .sub-image {
+      margin: 3rem auto;
+      text-align: center;
+
+      img {
+        max-width: 200px;
+      }
+    }
+
+    h2 {
+      color: $dark-blue;
+      text-align: left;
+    }
+
+    p {
+      @include font-base();
+      color: #757575;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      text-align: left;
+
+      @media(min-width: $layout-s) {
+        font-size: 1.2rem;
+      }
+    }
+
+    & div:first-of-type p:first-of-type {
+      &:first-letter {
+        color: $light-blue;
+        font-size: 4rem;
+        line-height: 1.2rem;
+
+        @media(min-width: $layout-s) {
+          font-size: 6rem;
+        }
+      }
     }
   }
 
@@ -117,47 +193,8 @@
     .button {
       display: block;
       width: 100%;
-      max-width: $content-max-width;
+      max-width: 300px;
       margin: 0 auto 1rem;
-    }
-  }
-
-  article {
-    background: transparent url('../images/grunge-white-top.jpg') left -55px no-repeat;
-    line-height: 1.5;
-    max-width: $content-max-width;
-    padding: 2rem;
-
-    .sub-image {
-      margin-bottom: 3rem;
-      margin-top: 4rem;
-    }
-
-    > img {
-      margin: 1rem auto;
-      text-align: center;
-      max-width: 100%;
-    }
-
-    h2 {
-      color: #1b2a32;
-      text-align: left;
-    }
-
-    & div:first-of-type p:first-of-type {
-      &:first-letter {
-        color: $light-blue;
-        font-size: 6rem;
-        line-height: 1.2rem;
-      }
-    }
-
-    p {
-      @include font-base();
-      color: #757575;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      text-align: left;
     }
   }
 }

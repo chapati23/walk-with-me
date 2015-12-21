@@ -1,23 +1,24 @@
 <section id="journey">
     <header>
-        <div class="header-image">
-            <img ng-src="{{vm.refugee.imgUrl}}"/>
-        </div>
-
-        <div class="header-info">
+        <div class="header-logo">
             <p class="sub-image"><img src="images/h1-walk-with.png" alt="Walk with"/></p>
             <h1>
                 <span ng-bind="vm.refugee.name"></span>,
                 <span ng-bind="vm.refugee.age"></span>
             </h1>
+        </div>
+
+        <div class="header-image">
+            <img ng-src="{{vm.refugee.imgUrl}}"/>
+        </div>
+
+        <div class="header-info">
             <p class="route">
                 <span ng-bind="vm.refugee.homeTown"></span>
                 &rarr;
                 <span ng-bind="vm.refugee.currentCity"></span>
             </p>
-            <div class="route-map">
-                <img ng-src="images/journey/{{vm.refugee.mapUrl}}" alt="{{vm.refugee.homeTown}} to {{vm.refugee.currentCity}}"/>
-            </div>
+            <img class="route-map" ng-src="images/journey/{{vm.refugee.mapUrl}}" alt="{{vm.refugee.homeTown}} to {{vm.refugee.currentCity}}"/>
         </div>
     </header>
 
@@ -28,7 +29,7 @@
         <span class="sm">steps</span>
     </div>
 
-    <article>
+    <article class="card">
         <h2 class="sub-image"><img src="images/h1-my-story.png" alt="My story"/></h2>
         <div ng-bind-html="vm.refugee.story.whoAreYou"></div>
 
@@ -45,7 +46,6 @@
     <aside class="get-involved">
         <h2>Get involved</h2>
         <p>Everyone can help</p>
-        <a class="button call-to-action" href="http://govolunteer.com">Volunteer</a>
-        <a class="button call-to-action" href="http://govolunteer.com">Donate Items</a>
+        <a class="button call-to-action" href="https://govolunteer.com" target="_blank">Go Volunteer</a>
     </aside>
 </section>

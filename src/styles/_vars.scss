@@ -7,4 +7,11 @@ $light-blue:  #88a4b4;
 $turquoise:   #9ACCB5;
 $orange:      #ff9600;
 $green:       #bdd7cc;
-$content-max-width: 52rem;
+
+$layout-s: 600px;
+$layout-m: 960px;
+$layout-l: 1280px;
+$layout-xl: 1920px;
+
+$page-max-width: $layout-l;
+$content-max-width: $layout-m;

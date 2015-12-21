@@ -4,7 +4,7 @@
   padding: 1rem;
   position: relative;
 
-  @media(min-width: 768px) {
+  @media(min-width: $layout-s) {
     background-image: url('../images/bg-web.jpg');
   }
 

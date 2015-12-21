@@ -20,6 +20,7 @@ import RefugeeService from './services/refugee.service';
 // Directives
 import OdometerDirective from './components/odometer';
 import ProgressButtonDirective from './components/progressButton.directive';
+import AgeForm from './components/ageForm';
 
 angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'ngMessages', 'angular-inview', 'monospaced.elastic', 'ngFileUpload', 'firebase'])
 .constant('CONFIG', {
@@ -45,7 +46,7 @@ angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'ngMessage
         controller: JourneyController,
         controllerAs: 'vm',
         resolve: {
-            refugee: (RefugeeService, $stateParams) => {
+            refugee: (RefugeeService, $stateParams) => { //eslint-disable-line
                 return RefugeeService.getRefugee({ $id: $stateParams.refugeeId});
             }
         }
@@ -68,4 +69,5 @@ angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'ngMessage
 })
 .service('RefugeeService', RefugeeService)
 .directive('odometer', OdometerDirective)
-.directive('progressButton', ProgressButtonDirective);
+.directive('progressButton', ProgressButtonDirective)
+.component('ageForm', AgeForm);

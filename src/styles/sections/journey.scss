@@ -4,6 +4,7 @@ $map-height: 460px;
   header {
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
     padding: 0;
     margin: 0 auto;
     max-width: $layout-s;

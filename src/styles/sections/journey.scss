@@ -82,8 +82,9 @@ $map-height: 460px;
     }
 
     .route-map {
-      margin: 0 auto -3px; // -3px to account for phantom margin that shouldn't occur. oh mysterious box model…
+      margin: 0 auto -5px; // -5px to account for phantom margin that shouldn't occur. oh mysterious box model…
       width: 100%;
+      z-index: -1;
 
       @media(min-width: $layout-m) {
         width: auto;

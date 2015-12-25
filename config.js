@@ -24,6 +24,7 @@ System.config({
     "angular-sanitize": "github:angular/bower-angular-sanitize@1.5.0-rc.0",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "angularfire": "npm:angularfire@1.1.3",
+    "api-check": "npm:api-check@7.5.5",
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "connect-modrewrite": "npm:connect-modrewrite@0.8.2",
@@ -33,7 +34,7 @@ System.config({
     "ng-file-upload": "npm:ng-file-upload@10.1.11",
     "odometer": "bower:odometer@0.4.7",
     "github:angular-ui/ui-router@0.2.15": {
-      "angular": "github:angular/bower-angular@1.4.8"
+      "angular": "github:angular/bower-angular@1.5.0-rc.0"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"

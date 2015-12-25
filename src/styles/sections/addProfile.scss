@@ -3,7 +3,7 @@
   background-size: cover;
   padding: 1rem;
 
-  @media(min-width: 768px) {
+  @media(min-width: $layout-s) {
     background-image: url('../images/bg-web.jpg');
   }
 

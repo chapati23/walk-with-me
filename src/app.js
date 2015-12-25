@@ -29,7 +29,7 @@ angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'ngMessage
     imgUploadApiKey: '921313781115659',
     imgUploadApiSecret: '-pLXQD9GiXjESJkfsM4QC88zAsc'
 })
-.config(($stateProvider, $urlRouterProvider) => {
+.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
@@ -46,9 +46,9 @@ angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'ngMessage
         controller: JourneyController,
         controllerAs: 'vm',
         resolve: {
-            refugee: (RefugeeService, $stateParams) => { //eslint-disable-line
+            refugee: ['RefugeeService', '$stateParams', (RefugeeService, $stateParams) => { //eslint-disable-line
                 return RefugeeService.getRefugee({ $id: $stateParams.refugeeId});
-            }
+            }]
         }
     })
 
@@ -66,7 +66,7 @@ angular.module('walkWithMe', ['ui.router', 'ngAnimate', 'ngSanitize', 'ngMessage
         controllerAs: 'vm'
     });
 
-})
+}])
 .service('RefugeeService', RefugeeService)
 .directive('odometer', OdometerDirective)
 .directive('progressButton', ProgressButtonDirective)

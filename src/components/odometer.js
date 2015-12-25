@@ -18,6 +18,8 @@ class OdometerController {
     };
 }
 
+OdometerController.$inject = ['$element'];
+
 let OdometerDirective = () => {
     return {
         template: `<span in-view="vm.shouldOdometerRun && vm.startOdometer()" class="counter odometer">0</span>`,

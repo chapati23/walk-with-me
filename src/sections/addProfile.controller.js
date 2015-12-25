@@ -1,8 +1,9 @@
 import jsSHA from 'jssha/src/sha1';
 
-export default class AddProfileController {
-    constructor(Upload, $timeout, $window, $firebaseArray, $firebaseObject, CONFIG, $state) {
+class AddProfileController {
+    constructor(Upload, $http, $timeout, $window, $firebaseArray, $firebaseObject, CONFIG, $state) {
         this.Upload = Upload;
+        this.$http = $http;
         this.$timeout = $timeout;
         this.$window = $window;
         this.$firebaseArray = $firebaseArray;
@@ -69,6 +70,9 @@ export default class AddProfileController {
         this.$timeout(() => {
             this.$state.go('profileAdded');
         }, 500);
-        // this.$state.go('journey', { refugeeName: this.refugee.name.toLowerCase().split(/ /)[0], refugeeId: this.refugeeRef.key()});
     }
 }
+
+AddProfileController.$inject = ['Upload', '$http', '$timeout', '$window', '$firebaseArray', '$firebaseObject', 'CONFIG', '$state']
+
+export default AddProfileController;

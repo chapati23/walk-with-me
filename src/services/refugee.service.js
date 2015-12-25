@@ -31,4 +31,6 @@ class RefugeeService {
     }
 }
 
+RefugeeService.$inject = ['$q', '$window', '$firebaseArray', 'CONFIG'];
+
 export default RefugeeService;

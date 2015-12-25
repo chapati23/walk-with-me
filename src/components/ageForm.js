@@ -12,6 +12,8 @@ class AgeFormController {
     }
 }
 
+AgeFormController.$inject = ['$rootScope', '$element'];
+
 let AgeForm = {
     bindings: { },
     controller: AgeFormController,

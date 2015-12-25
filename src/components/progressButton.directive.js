@@ -92,6 +92,8 @@ class ProgressButtonController {
 
 }
 
+ProgressButtonController.$inject = ['$element', '$timeout', '$rootScope'];
+
 let ProgressButtonDirective = () => {
     return {
         template: `

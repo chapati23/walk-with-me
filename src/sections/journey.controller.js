@@ -4,4 +4,6 @@ class JourneyController {
     }
 }
 
+JourneyController.$inject = ['refugee'];
+
 export default JourneyController;

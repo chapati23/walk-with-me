@@ -5,6 +5,8 @@ var config;
 
 if (argv.env && argv.env === 'build') {
     config = {
+        logConnections: true,
+        online: false, // reduce start-up time
         startPath: '/',
         server: {
             baseDir: 'dist',
@@ -13,6 +15,8 @@ if (argv.env && argv.env === 'build') {
     };
 } else {
     config = {
+        logConnections: true,
+        online: false, // reduce start-up time
         startPath: '/',
         server: {
             baseDir: ['.tmp', 'src'],

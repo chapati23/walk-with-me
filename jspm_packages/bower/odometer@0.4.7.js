@@ -1,0 +1,1 @@
+module.exports = require("bower:odometer@0.4.7/odometer.js");

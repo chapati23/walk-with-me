@@ -1,0 +1,1 @@
+module.exports = require("npm:angular-elastic@2.5.0/elastic");

@@ -1,0 +1,170 @@
+/*-------- Labels ---------*/
+
+.big-label {
+  @include font-base();
+  display: block;
+  color: #232323;
+  font-size: 1.6em;
+  margin-bottom: .5em;
+  font-style: italic;
+  text-rendering: geometricPrecision;
+}
+
+// Remove tap highlight on iOS
+input,
+textarea,
+button,
+select,
+label,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+
+/*-------- Inputs ---------*/
+input[type=text], input[type=number], input[type=email], textarea {
+  @include font-header();
+  background: transparent;
+  border-width: 0;
+  border-bottom: 2px solid $mid-grey;
+  font-size: 1em;
+  padding: .5em;
+  text-align: center;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    display: none;
+  }
+}
+
+textarea {
+  background: white;
+}
+
+.input-group {
+  list-style: none;
+  margin: 1rem auto;
+  max-width: 400px;
+
+  label {
+    display: block;
+    font-size: .8rem;
+    padding-left: .5rem;
+    text-align: left;
+  }
+
+  input, textarea {
+    text-align: left;
+    width: 100%;
+  }
+
+  ::placeholder {
+    font-size: .9rem;
+  }
+
+  &.textarea {
+    label {
+      margin-bottom: .5rem;
+    }
+
+  }
+
+  &.checkbox {
+    display: flex;
+    flex-wrap: wrap;
+
+    input[type=checkbox] {
+      cursor: pointer;
+      flex: 0 0 15px;
+      margin-left: .5rem;
+    }
+
+    label {
+      flex: 1;
+    }
+
+    .icon {
+      top: -5px;
+    }
+  }
+}
+
+
+/*-------- Nice radio buttons ---------*/
+
+input[type=radio] {
+  display: none;
+}
+
+label.circle {
+  @include font-header();
+  display: inline-block;
+  margin: 0 1rem;
+  font-style: normal;
+  text-transform: uppercase;
+
+  .selected {
+    border: 1px solid #999;
+    border-radius: 50% 50% 50% 50%;
+    display: inline-block;
+    margin-bottom: -6px;
+    margin-right: .3rem;
+    padding: 10px;
+  }
+}
+
+input[type="radio"]:checked + label.circle {
+  opacity: 1;
+}
+
+input[type="radio"]:checked + label.circle .selected {
+  background: $turquoise;
+}
+
+
+/*-------- Validations ---------*/
+.input-group {
+  position: relative;
+
+  .icon {
+    position: absolute;
+    right: 7px;
+    top: 22px;
+    width: 24px;
+  }
+
+  &.textarea {
+    .icon {
+      top: -5px;
+    }
+  }
+}
+
+input[type=text], input[type=number], input[type=email], textarea {
+  &.ng-valid.ng-touched {
+    border-color: $turquoise;
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: indianred;
+
+    &::placeholder {
+      color: transparentize(indianred, .7);
+    }
+  }
+}
+
+.error-messages {
+  text-align: left;
+}
+
+.error-msg {
+  color: indianred;
+  display: inline-block;
+  font-size: .8rem;
+  padding: .5rem;
+}

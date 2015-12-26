@@ -1,0 +1,48 @@
+/*-------- Typography ---------*/
+@mixin font-header() {
+  font-family: Montserrat, sans-serif;
+}
+
+@mixin font-base() {
+  font-family: 'Droid Serif', Times, serif;
+}
+
+h1 {
+  @include font-header();
+  color: #536c75;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+}
+
+h2 {
+  @include font-base();
+  color: #7a7a7a;
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-rendering: geometricPrecision;
+}
+
+h3 {
+  @include font-base();
+  color: #7a7a7a;
+  font-size: .8rem;
+  font-style: italic;
+  font-weight: 400;
+  text-rendering: geometricPrecision;
+}
+
+aside p {
+  @include font-base();
+}
+
+section {
+  min-height: 100%;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(0, 0, 0, 0.137255) 0px 1px 1px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 1px -1px;
+  margin: 3rem auto;
+}

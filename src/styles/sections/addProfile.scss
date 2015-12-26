@@ -1,0 +1,56 @@
+#add-profile {
+  background: transparent url('../images/bg-mobile.jpg') center center no-repeat fixed;
+  background-size: cover;
+  padding: 1rem;
+
+  @media(min-width: $layout-s) {
+    background-image: url('../images/bg-web.jpg');
+  }
+
+  h2 {
+    margin: 1rem 0;
+  }
+
+  form {
+    background: rgba(255, 255, 255, .85);
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  li:first-of-type {
+    margin-top: 0;
+  }
+
+  .photo {
+    .progress {
+      align-items: center;
+      background: $turquoise;
+      display: flex;
+      font-family: Montserrat, sans-serif;
+      justify-content: center;
+      margin-top: .2rem;
+      padding: .3rem 0;
+      height: 30px;
+      transition: all 100ms linear;
+    }
+  }
+
+  .thumb {
+    max-width: 100%;
+  }
+
+  .terms {
+    font-size: .8rem;
+    text-align: left;
+    transition: all linear 200ms;
+    padding: .5rem;
+
+    &.ng-hide {
+      opacity: 0;
+    }
+
+    &.ng-show {
+      opacity: 1;
+    }
+  }
+}

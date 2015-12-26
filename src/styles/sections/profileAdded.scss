@@ -1,0 +1,21 @@
+#profile-added {
+  background: transparent url('../images/bg-mobile.jpg') center center no-repeat;
+  background-size: cover;
+  padding: 1rem;
+  position: relative;
+
+  @media(min-width: $layout-s) {
+    background-image: url('../images/bg-web.jpg');
+  }
+
+  .success-message {
+    font-family: Montserrat, sans-serif;
+    font-size: 1.1rem;
+    left: 50%;
+    line-height: 1.3;
+    position: absolute;
+    top: 25%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+}

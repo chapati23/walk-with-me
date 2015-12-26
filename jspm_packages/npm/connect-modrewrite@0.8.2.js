@@ -1,1 +1,0 @@
-module.exports = require("npm:connect-modrewrite@0.8.2/index.js");

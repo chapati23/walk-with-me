@@ -1,1 +1,0 @@
-module.exports = require("npm:angular-inview@1.5.6/angular-inview.js");

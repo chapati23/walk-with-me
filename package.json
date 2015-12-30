@@ -51,6 +51,7 @@
     "hashmark": "~3.1.0",
     "imagemin": "~4.0.0",
     "injectassets": "~1.0.2",
+    "jasmine-core": "~2.4.1",
     "jspm": "^0.16.19",
     "jspm-bower-endpoint": "^0.3.2",
     "jspm-github": "^0.13.9",

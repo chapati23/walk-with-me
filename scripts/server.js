@@ -32,25 +32,33 @@ if (argv.env && argv.env === 'build') {
             {
                 match: ['src/styles/**/*.scss'],
                 fn: function(event, file) {
-                    changeHandler(file, 'npm run styles:dev -s', { noReload: true });
+                    if (event === 'change') {
+                        changeHandler(file, 'npm run styles:dev -s', { noReload: true });
+                    }
                 }
             },
             {
                 match: ['src/**/*.js'],
                 fn: function(event, file) {
-                    changeHandler(file, 'npm run js:lint -s');
+                    if (event === 'change') {
+                        changeHandler(file, 'npm run js:lint -s');
+                    }
                 }
             },
             {
                 match: ['src/**/*.html', '!src/index.html'],
                 fn: function(event, file) {
-                    changeHandler(file, 'npm run copy:html -s');
+                    if (event === 'change') {
+                        changeHandler(file, 'npm run copy:html -s');
+                    }
                 }
             },
             {
                 match: ['src/index.html'],
                 fn: function(event, file) {
-                    changeHandler(file, 'npm run js:inject:dev -s');
+                    if (event === 'change') {
+                        changeHandler(file, 'npm run js:inject:dev -s');
+                    }
                 }
             }
         ],

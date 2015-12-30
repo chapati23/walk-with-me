@@ -1,6 +1,6 @@
 <section id="add-profile">
     <header>
-        <img ui-sref="home" src="images/walk-with-me-logo.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin" width="230"/>
+        <img ui-sref="home" src="assets/images/walk-with-me-logo-a143ff.png" alt="Walk With Me: Berlin" title="Walk With Me: Berlin" width="230"/>
     </header>
 
     <h2>Add A Profile</h2>
@@ -26,7 +26,7 @@
                 <button ng-show="vm.photo.result" ng-click="vm.photo = null">Remove</button>
                 <div    ng-show="vm.photo.progress >= 0 && !vm.photo.result" class="progress" style="width:{{vm.photo.progress}}%">
                     <span ng-hide="vm.photo.showSpinner" ng-bind="vm.photo.progress + '%'"></span>
-                    <img ng-show="vm.photo.showSpinner" src="images/spinner.svg" alt="loading indicator" height="24" />
+                    <img ng-show="vm.photo.showSpinner" src="assets/images/spinner-8b563e.svg" alt="loading indicator" height="24" />
                 </div>
                 <div    ng-show="vm.errorMsg" class="error-message" ng-bind="vm.errorMsg"></div>
                 <div    ng-show="form.file.$error.maxSize" class="error-message">This photo is too large. Photo size can be maxium 20MB.</div>
@@ -49,8 +49,8 @@
             <li class="name input-group">
                 <label for="name">Name</label>
                 <input id="name" type="text" name="name" ng-model="vm.refugee.name" placeholder="Zahira Musterfrau" required autocomplete="off" />
-                <img src="images/icons/checkmark.svg" ng-if="form.name.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.name.$touched && form.name.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.name.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.name.$touched && form.name.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.name.$touched && form.name.$invalid" ng-messages='form.name.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">What's the person's name?</span>
                 </div>
@@ -59,8 +59,8 @@
             <li class="age input-group">
                 <label for="age">Age</label>
                 <input id="age" name="age" type="number" ng-model="vm.refugee.age" pattern="\d*" placeholder="27" required maxlength="3" autocomplete="off" />  <!-- pattern="\d*" makes use of the number keyboard on iOS -->
-                <img src="images/icons/checkmark.svg" ng-if="form.age.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.age.$touched && form.age.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.age.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.age.$touched && form.age.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.age.$touched && form.age.$invalid" ng-messages='form.age.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">How old is the person?</span>
                     <span ng-message='maxlength' class="error-msg">Please enter as a number with max. 3 digits</span>
@@ -70,8 +70,8 @@
             <li class="hometown input-group">
                 <label for="hometown">Hometown</label>
                 <input id="hometown" name="hometown" type="text" ng-model="vm.refugee.homeTown" placeholder="Aleppo" required autocomplete="off" />
-                <img src="images/icons/checkmark.svg" ng-if="form.hometown.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.hometown.$touched && form.hometown.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.hometown.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.hometown.$touched && form.hometown.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.hometown.$touched && form.hometown.$invalid" ng-messages='form.hometown.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">What's the person's home town? If not known, just write 'Unknown'.</span>
                 </div>
@@ -80,8 +80,8 @@
             <li class="country input-group">
                 <label for="country">Home Country</label>
                 <input id="country" name="homecountry" type="text" ng-model="vm.refugee.homeCountry" placeholder="Syria" required autocomplete="off" />
-                <img src="images/icons/checkmark.svg" ng-if="form.homecountry.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.homecountry.$touched && form.homecountry.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.homecountry.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.homecountry.$touched && form.homecountry.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.homecountry.$touched && form.homecountry.$invalid" ng-messages='form.homecountry.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">What's the person's home country?</span>
                 </div>
@@ -90,8 +90,8 @@
             <li class="current-city input-group">
                 <label for="current-city">Current City</label>
                 <input id="current-city" name="currentcity" type="text" ng-model="vm.refugee.currentCity" placeholder="Berlin" required autocomplete="off" />
-                <img src="images/icons/checkmark.svg" ng-if="form.currentcity.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.currentcity.$touched && form.currentcity.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.currentcity.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.currentcity.$touched && form.currentcity.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.currentcity.$touched && form.currentcity.$invalid" ng-messages='form.currentcity.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">What's the person's current city of residence?</span>
                 </div>
@@ -100,8 +100,8 @@
             <li class="current-country input-group">
                 <label for="current-country">Current Country</label>
                 <input id="current-country" name="currentcountry" type="text" ng-model="vm.refugee.currentCountry" placeholder="Germany" required autocomplete="off" />
-                <img src="images/icons/checkmark.svg" ng-if="form.currentcountry.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.currentcountry.$touched && form.currentcountry.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.currentcountry.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.currentcountry.$touched && form.currentcountry.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.currentcountry.$touched && form.currentcountry.$invalid" ng-messages='form.currentcountry.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">What's the person's current country of residence?</span>
                 </div>
@@ -110,8 +110,8 @@
             <li class="who-are-you input-group textarea">
                 <label for="who-are-you">Who are you?</label>
                 <textarea msd-elastic id="who-are-you" name="whoareyou" rows="4" ng-model="vm.refugee.story.whoAreYou" placeholder="I was born and raised in Aleppo, a big city in North-West Syria where I've lived my entire live. After high school I met my husband and…" required></textarea>
-                <img src="images/icons/checkmark.svg" ng-if="form.whoareyou.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.whoareyou.$touched && form.whoareyou.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.whoareyou.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.whoareyou.$touched && form.whoareyou.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.whoareyou.$touched && form.whoareyou.$invalid" ng-messages='form.whoareyou.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">Please provide some background information about the person</span>
                 </div>
@@ -120,8 +120,8 @@
             <li class="why-did-you-leave input-group textarea">
                 <label for="why-did-you-leave">Why did you leave?</label>
                 <textarea msd-elastic id="why-did-you-leave" name="whydidyouleave" rows="4" ng-model="vm.refugee.story.whyDidYouLeave" placeholder="The war began, and everything changed. At first we didn't think it would affect us, but then one day…" required></textarea>
-                <img src="images/icons/checkmark.svg" ng-if="form.whydidyouleave.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.whydidyouleave.$touched && form.whydidyouleave.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.whydidyouleave.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.whydidyouleave.$touched && form.whydidyouleave.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.whydidyouleave.$touched && form.whydidyouleave.$invalid" ng-messages='form.whydidyouleave.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">Why did the person have to leave his or her home country?</span>
                 </div>
@@ -130,8 +130,8 @@
             <li class="how-did-you-travel input-group textarea">
                 <label for="how-did-you-travel">How did you travel?</label>
                 <textarea msd-elastic id="how-did-you-travel" name="howdidyoutravel" rows="4" ng-model="vm.refugee.story.howDidYouTravel" placeholder="We escaped town and found our way to a convoy of cars all going in the same direction. We arrived at the border town and paid a group of people to…" required></textarea>
-                <img src="images/icons/checkmark.svg" ng-if="form.howdidyoutravel.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.howdidyoutravel.$touched && form.howdidyoutravel.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.howdidyoutravel.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.howdidyoutravel.$touched && form.howdidyoutravel.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.howdidyoutravel.$touched && form.howdidyoutravel.$invalid" ng-messages='form.howdidyoutravel.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">How did the person get to his or her current country of residence? Which route did they take? How long was the trip?</span>
                 </div>
@@ -140,8 +140,8 @@
             <li class="what-do-you-wish-for input-group textarea">
                 <label for="what-do-you-wish-for">What do you wish for?</label>
                 <textarea msd-elastic id="what-do-you-wish-for" name="whatdoyouwishfor" rows="4" ng-model="vm.refugee.story.whatDoYouWishFor" placeholder="I hope that one day I will be reunited with my husband, and we will have the third child we always wanted... a boy. I want peace for Syria, and…" required></textarea>
-                <img src="images/icons/checkmark.svg" ng-if="form.whatdoyouwishfor.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.whatdoyouwishfor.$touched && form.whatdoyouwishfor.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.whatdoyouwishfor.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.whatdoyouwishfor.$touched && form.whatdoyouwishfor.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.whatdoyouwishfor.$touched && form.whatdoyouwishfor.$invalid" ng-messages='form.whatdoyouwishfor.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">What does this person wish for in the future?</span>
                 </div>
@@ -150,8 +150,8 @@
             <li class="email input-group">
                 <label for="email">What's the uploader's Email?</label>
                 <input id="email" type="email" name="email" ng-model="vm.refugee.email" placeholder="peter.parker@abc.com" required />
-                <img src="images/icons/checkmark.svg" ng-if="form.email.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.email.$touched && form.email.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.email.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.email.$touched && form.email.$invalid" class="icon error" alt="Error Icon" />
                 <div ng-if="form.email.$touched && form.email.$invalid" ng-messages='form.email.$error' class='error-messages'>
                     <span ng-message='required' class="error-msg">What is your personal email address?<br><br>In case we have further questions regarding this profile. Don't worry, we will not send you any spam, newsletters or else without your prior agreement ;)</span>
                     <span ng-message='email' class="error-msg">This doesn't look like a valid email address. A typo, maybe?</span>
@@ -161,11 +161,11 @@
             <li class="disclaimer input-group checkbox">
                 <input id="disclaimer" type="checkbox" name="disclaimer" ng-model="vm.refugee.disclaimer" required />
                 <label for="disclaimer">I agree with the <a href="" ng-click="vm.showTerms = !vm.showTerms">Terms &amp; Conditions</a></label>
-                <img src="images/icons/checkmark.svg" ng-if="form.disclaimer.$valid" class="icon checkmark" alt="Checkmark Icon" />
-                <img src="images/icons/error.svg" ng-if="form.disclaimer.$touched && form.disclaimer.$invalid" class="icon error" alt="Error Icon" />
+                <img src="assets/images/icons/checkmark-6a89b4.svg" ng-if="form.disclaimer.$valid" class="icon checkmark" alt="Checkmark Icon" />
+                <img src="assets/images/icons/error-1fd43d.svg" ng-if="form.disclaimer.$touched && form.disclaimer.$invalid" class="icon error" alt="Error Icon" />
                 <p class="terms" ng-show="vm.showTerms">
-                    I hereby grant WalkWithMe.berlin the right and permission to use any images and text I upload.
-                    I declare that I am the owner of any images and text I upload, and that I have permission to upload it for the purposes described here.
+                    I hereby grant WalkWithMe.berlin the right and permission to use any assets/images and text I upload.
+                    I declare that I am the owner of any assets/images and text I upload, and that I have permission to upload it for the purposes described here.
                     <br>
                     <br>
                     I understand that WalkWithMe.berlin may use, re-use, publish and re-publish my content in whole or in part, in any medium now or hereafter known, and for any purpose whatsoever.

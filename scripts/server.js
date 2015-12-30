@@ -28,7 +28,7 @@ if (argv.env && argv.env === 'build') {
         },
         files: [
             '.tmp/styles/index.css',
-            'src/images/**/*',
+            'src/assets/images/**/*',
             {
                 match: ['src/styles/**/*.scss'],
                 fn: function(event, file) {

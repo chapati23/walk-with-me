@@ -1,11 +1,11 @@
 #profile-added {
-  background: transparent url('../images/bg-mobile.jpg') center center no-repeat;
+  background: transparent url('../assets/images/bg-mobile.jpg') center center no-repeat;
   background-size: cover;
   padding: 1rem;
   position: relative;
 
   @media(min-width: $layout-s) {
-    background-image: url('../images/bg-web.jpg');
+    background-image: url('../assets/images/bg-web.jpg');
   }
 
   .success-message {

@@ -1,10 +1,10 @@
 #add-profile {
-  background: transparent url('../images/bg-mobile.jpg') center center no-repeat fixed;
+  background: transparent url('../assets/images/bg-mobile.jpg') center center no-repeat fixed;
   background-size: cover;
   padding: 1rem;
 
   @media(min-width: $layout-s) {
-    background-image: url('../images/bg-web.jpg');
+    background-image: url('../assets/images/bg-web.jpg');
   }
 
   h2 {

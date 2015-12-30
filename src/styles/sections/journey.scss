@@ -47,7 +47,7 @@ $map-height: 460px;
 
     &::after {
       content: "";
-      background: transparent url('../images/grunge-over-image.png') left bottom no-repeat;
+      background: transparent url('../assets/images/grunge-over-image.png') left bottom no-repeat;
       top: 0;
       left: 0;
       bottom: 0;
@@ -112,7 +112,7 @@ $map-height: 460px;
   }
 
   article {
-    background: transparent url('../images/grunge-white-top.jpg') left -55px no-repeat;
+    background: transparent url('../assets/images/grunge-white-top.jpg') left -55px no-repeat;
     line-height: 1.5;
     max-width: $content-max-width;
     padding: 2rem;
